@@ -1462,13 +1462,12 @@ section,
   display:flex;
   flex-wrap:nowrap;
   gap:1.5rem;
-  margin-right:20px;
 }
 
 @media (max-width: 992px) {
   .devs{
+    justify-content: center;
     flex-wrap:wrap;
-    margin-right:0;
   }  
 }
 
@@ -1477,12 +1476,16 @@ section,
   box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
+  height:80%;
+  width:90%;
   border-radius: 5px;
   transition: 0.3s;
 }
 
 .developers .team-member .member-img {
   position: relative;
+  width:100%;
+  height:80%;
   overflow: hidden;
 }
 
@@ -1504,7 +1507,7 @@ section,
 .developers .team-member .social {
   position: absolute;
   right: -100%;
-  top: 30px;
+  top:10px;
   opacity: 0;
   border-radius: 4px;
   transition: 0.5s;
@@ -1529,30 +1532,18 @@ section,
   font-size: 18px;
 }
 
-.developers .team-member .member-info {
-  padding: 10px 15px 20px 15px;
-}
-
 .developers .team-member .member-info h4 {
   font-weight: 700;
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 30px;
   font-family: var(--default-font);
 }
 
 .developers .team-member .member-info span {
   display: block;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 600;
   color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.developers .team-member .member-info p {
-  font-style: italic;
-  font-size: 14px;
-  padding-top: 15px;
-  line-height: 26px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
 }
 
 .developers .team-member:hover {
