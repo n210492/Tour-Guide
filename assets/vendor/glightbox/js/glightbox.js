@@ -900,6 +900,8 @@
     }]);
   }();
 
+ 
+
   function slideImage(slide, data, index, callback) {
     var slideMedia = slide.querySelector('.gslide-media');
     var img = new Image();
@@ -2338,7 +2340,8 @@
         }
         if (index < 0) {
           index = this.elements.length - 1;
-        } else if (index >= this.elements.length) {
+        } 
+        else if (index >= this.elements.length) {
           index = 0;
         }
         this.showSlide(index);
@@ -3084,8 +3087,6 @@
     var instance = new GlightboxInit(options);
     instance.init();
     return instance;
-  }
-
+  }  
   return glightbox;
-
 })));
