@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Top Tourist Destinations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 20px;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            height: 480px; /* Fixed height for consistency */
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            position: relative; /* To position the heart icon */
+            justify-content: space-between; /* Ensures the Visit button stays at the bottom */
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%; /* Fixed height for images */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Visit Button - placed at the bottom */
+        .visit-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: auto; /* Makes sure the button stays at the bottom of the card */
+            align-self: center; /* Ensures the button is horizontally centered */
+        }
+
+        .visit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Wishlist Icon (No Circle) */
+        .wishlist-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .wishlist-icon:hover {
+            color: #ff4081; /* Change color on hover */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Explore India</h1>
+        <p>Discover the beauty and culture of India</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h2>Top Tourist Attractions in India</h2>
+        <div class="cards-container">
+            <!-- Tourist Place 1 -->
+            <div class="card">
+                <img src="amer.jpg" alt="Amber Fort">
+                <h3>Amber Fort</h3>
+                <p>A symbol of love, the Taj Mahal is a magnificent marble mausoleum located in Agra.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 2 -->
+            <div class="card">
+                <img src="gateway.jpg" alt="Gateway of India">
+                <h3>Gateway of India</h3>
+                <p>A majestic structure built during the British era in Mumbai overlooking the Arabian Sea.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 3 -->
+            <div class="card">
+                <img src="citypalace.jpg" alt="City Palace">
+                <h3>Udaipur City Palace</h3>
+                <p>Explore the grandeur and regal charm of this historic palace in the heart of Rajasthan.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 4 -->
+            <div class="card">
+                <img src="qutubminar.jpg" alt="Qutub Minar">
+                <h3>Qutub Minar</h3>
+                <p>One of the tallest brick minarets in the world, a UNESCO World Heritage site located in Delhi.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 5 -->
+            <div class="card">
+                <img src="cub.jpg" alt="Cubbon Park">
+                <h3>Cubbon Park</h3>
+                <p>Located in Amritsar, this sacred Sikh temple is known for its golden architecture and tranquil atmosphere.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 6 -->
+            <div class="card">
+                <img src="elecaves.jpg" alt="Elephanta Caves">
+                <h3>Elephanta Caves</h3>
+                <p>Explore the ancient rock-cut temples dedicated to Hindu gods on Elephanta Island, Mumbai.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 7 -->
+            <div class="card">
+                <img src="lal.jpg" alt="Lalbagh Botanical Garden">
+                <h3>Lalbagh Botanical Garden</h3>
+                <p>A haven for wildlife lovers, known for its tiger reserve in Rajasthan.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 8 -->
+            <div class="card">
+                <img src="ram.jpg" alt="Ramoji Film City">
+                <h3>Ramoji Film City</h3>
+                <p>Experience the spiritual heart of India with a visit to the sacred ghats of Varanasi.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 9 -->
+            <div class="card">
+                <img src="char.jpg" alt="Charminar">
+                <h3>Charminar</h3>
+                <p>Known for its beautiful beaches and crystal-clear waters, a perfect place for island vacations.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 10 -->
+            <div class="card">
+                <img src="beng.jpg" alt="Bangalore Palace">
+                <h3>Bangalore Palace</h3>
+                <p>Located in Karnataka, this royal palace offers a glimpse into India's royal heritage.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 11 -->
+            <div class="card">
+                <img src="hawamahal.jpg" alt="Hawa Mahal">
+                <h3>Hawa Mahal</h3>
+                <p>Famous for their intricate and erotic sculptures, located in Madhya Pradesh.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 12 -->
+            <div class="card">
+                <img src="hus.jpg" alt="Husain Sagar Lake">
+                <h3>Hussain Sagar Lake</h3>
+                <p>A UNESCO World Heritage site, Hampi offers a glimpse into India's ancient history and architecture.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 13 -->
+            <div class="card">
+                <img src="vid.jpg" alt="Vidhana Soudha">
+                <h3>Vidhana Soudha</h3>
+                <p>A stunning landscape of mountains and lakes, Nainital is one of India’s most famous hill stations.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 14 -->
+            <div class="card">
+                <img src="humanstomb.jpg" alt="Delhi Red Fort">
+                <h3>Human's tomb</h3>
+                <p>A stunning fort with rich Mughal history located in Delhi.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 15 -->
+            <div class="card">
+                <img src="jaisalmer.jpg" alt="Taj Mahal">
+                <h3>Jaisalmer</h3>
+                <p>The Taj Mahal is one of the most famous landmarks in India and a symbol of eternal love.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 16 -->
+            <div class="card">
+                <img src="indiagate.jpg" alt="Kerala Backwaters">
+                <h3>India Gate</h3>
+                <p>Known for its peaceful backwaters, Kerala is a nature lover’s dream.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 17 -->
+            <div class="card">
+                <img src="chatrapathi.jpg" alt="Ladakh">
+                <h3>Chatrapathi Shivaji maharaj teminus</h3>
+                <p>A serene place with stunning views of mountains, lakes, and monasteries.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 18 -->
+            <div class="card">
+                <img src="marinedrive.jpg" alt="Coorg">
+                <h3>Marinedrive</h3>
+                <p>Coorg, known as the Scotland of India, is famous for its coffee plantations and scenic beauty.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 19 -->
+            <div class="card">
+                <img src="golconda.jpg" alt="Andaman Islands">
+                <h3>Golconda Fort</h3>
+                <p>Known for its pristine beaches and clear waters, the Andaman Islands are perfect for water sports.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Tourist Place 20 -->
+            <div class="card">
+                <img src="redfort.jpg" alt="Redfort">
+                <h3>Redfort</h3>
+                <p>Darjeeling, known for its tea gardens and beautiful mountain views, offers a peaceful getaway.</p>
+                <a href="https://www.example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Explore India | All Rights Reserved</p>
+        <p>Visit our <a href="https://www.example.com">official site</a> for more details</p>
+    </footer>
+
+</body>
+</html>
