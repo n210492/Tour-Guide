@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Delhi - Tourist Attractions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 20px;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            height: 480px; /* Fixed height for consistency */
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%; /* Fixed height for images */
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .visit-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-top: auto; /* Pushes the button to the bottom of the card */
+            text-align: center;
+            align-self: center; /* Centers the button horizontally */
+        }
+
+        .visit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Wishlist Icon */
+        .wishlist-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .wishlist-icon:hover {
+            color: #ff4081; /* Change color on hover */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Explore Delhi</h1>
+        <p>The Heart of India, A City of History and Modernity</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h2>Top Tourist Attractions in Delhi</h2>
+        <div class="cards-container">
+            <!-- Place 1: Red Fort -->
+            <div class="card">
+                <img src="redfort.jpg" alt="Red Fort">
+                <h3>Red Fort</h3>
+                <p>A UNESCO World Heritage site, an iconic symbol of India's history.</p>
+                <a href="https://example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Place 2: Qutub Minar -->
+            <div class="card">
+                <img src="qutubminar.jpg" alt="Qutub Minar">
+                <h3>Qutub Minar</h3>
+                <p>The tallest brick minaret in the world, with stunning carvings.</p>
+                <a href="https://example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Place 3: India Gate -->
+            <div class="card">
+                <img src="indiagate.jpg" alt="India Gate">
+                <h3>India Gate</h3>
+                <p>A war memorial and national landmark honoring Indian soldiers.</p>
+                <a href="https://example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+
+            <!-- Place 4: Humayun's Tomb -->
+            <div class="card">
+                <img src="humanstomb.jpg" alt="Humayun's Tomb">
+                <h3>Humayun's Tomb</h3>
+                <p>The tomb of Mughal Emperor Humayun, a beautiful architectural wonder.</p>
+                <a href="https://example.com" class="visit-btn">Visit</a>
+                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Explore Delhi | All Rights Reserved</p>
+        <p>Visit our <a href="https://example.com">official site</a> for more details</p>
+    </footer>
+
+</body>
+</html>
