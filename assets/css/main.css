@@ -212,6 +212,65 @@ section{
 	padding: 2rem 10%;
 }
 
+/* From Uiverse.io by Yaya12085 */ 
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 18px 16px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.input:focus::placeholder {
+  color: rgb(131, 128, 128);
+}
+
+.input:focus,.input:not(:placeholder-shown) {
+  background-color: #fff;
+  border: 1px solid rgb(98, 0, 255);
+  width: 290px;
+  cursor: none;
+  padding: 18px 16px 18px 40px;
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: -1;
+  fill: rgb(98, 0, 255);
+  border: 1px solid rgb(98, 0, 255);
+}
+
+.input:hover + .icon {
+  transform: rotate(360deg);
+  transition: .2s ease-in-out;
+}
+
+.input:focus + .icon,.input:not(:placeholder-shown) + .icon {
+  z-index: 0;
+  background-color: transparent;
+  border: none;
+}
+
 
 .home{
 	display: flex;
@@ -255,7 +314,25 @@ object-fit:cover;
 	border-radius: 5rem;
 	background: rgba(0, 0, 0, 0.7);
 	position: relative;
-	top:220px;
+	top:250px;
+}
+
+@media (max-width:1112px){
+  .home .controls{
+    top:160px;
+  }
+}
+
+@media (max-width:595px){
+  .home .controls{
+    top:120px;
+  }
+}
+
+@media (max-width:420px){
+  .home .controls{
+    top:60px;
+  }
 }
 
 .home .controls .vid-btn{
@@ -1075,12 +1152,34 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Locations Section
+--------------------------------------------------------------*/
+.locations{
+  height:899px;
+}
+
+.box-container{
+  display: flex;
+  margin: 25px;
+  top: 100px;
+  gap:2rem;
+}
+
+.box-container .box{
+  height:300px;
+  width:25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*--------------------------------------------------------------
 # Why Us Section
 --------------------------------------------------------------*/
-.why-us .why-box {
+.why-box {
   color: var(--contrast-color);
   background: var(--accent-color);
   padding: 30px;
+  justify-content: center;
   height:100%;
 }
 
@@ -1114,7 +1213,7 @@ section,
   background: var(--surface-color);
 }
 
-.why-us .icon-box {
+.why-us .icon-box{
   background-color: var(--surface-color);
   text-align: center;
   padding: 40px 30px;
@@ -1295,7 +1394,7 @@ section,
 }
 
 .menu .tab-content .menu-item h4 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   margin-bottom: 5px;
   font-family: var(--default-font);
