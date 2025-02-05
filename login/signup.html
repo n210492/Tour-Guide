@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <script>
+        function toggleForm(type) {
+            document.getElementById("touristForm").style.display = (type === 'tourist') ? "block" : "none";
+            document.getElementById("tourGuideForm").style.display = (type === 'tourguide') ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="signup-box">
+            <h2>Signup</h2>
+            
+            <div class="role-selection">
+                <button onclick="toggleForm('tourist')">Tourist</button>
+                <button onclick="toggleForm('tourguide')">Tour Guide</button>
+            </div>
+
+            <!-- Tourist Signup Form -->
+            <form id="touristForm" action="#" style="display: none;">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="gender-box">
+                    <label>Gender:</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="btn">Signup</button>
+            </form>
+
+            <!-- Tour Guide Signup Form -->
+            <form id="tourGuideForm" action="#" style="display: none;">
+                <div class="input-box">
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="gender-box">
+                    <label>Gender:</label>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                    <input type="radio" name="gender" value="other"> Other
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Phone Number" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Experience (Years)" required>
+                </div>
+                <div class="input-box speciality-box">
+                    <label for="speciality">Speciality:</label>
+                    <select id="speciality">
+                        <option value="adventure">Adventure Tours</option>
+                        <option value="culture">Culture</option>
+                        <option value="nature">Nature</option>
+                        <option value="historical">Historical Sites</option>
+                    </select>
+                </div>                
+                <button type="submit" class="btn">Signup</button>
+            </form>
+
+            <div class="switch">
+                Already have an account? <a href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
