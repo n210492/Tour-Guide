@@ -1,15 +1,70 @@
 const Tourist = require('../models/Tourist');
 const TourGuide = require('../models/TourGuide');
+const bcrypt = require('bcryptjs');
+
+
+
+
+// Login for both Tourist and Tour Guide
+exports.login = async (req, res) => {
+    const { email, password, role } = req.body;
+
+    try {
+        let user;
+        if (role === 'tourist') {
+            user = await Tourist.findOne({ email });
+        } else if (role === 'tourguide') {
+            user = await TourGuide.findOne({ email });
+        } else {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid role specified'
+            });
+        }
+
+        // Check if user exists
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found'
+            });
+        }
+
+        // Compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid credentials'
+            });
+        }
+
+        // Login successful
+        res.status(200).json({
+            success: true,
+            message: 'Login successful',
+            data: user
+        });
+    } catch (error) {
+        console.error('Error in login:', error);
+        res.status(500).json({
+            success: false,
+            message: 'Error during login',
+            error: error.message
+        });
+    }
+};
 
 // Tourist Signup
 exports.signupTourist = async (req, res) => {
     try {
         const { fullName, email, password, gender, phoneNumber } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const tourist = new Tourist({
             fullName,
             email,
-            password, // In a real-world scenario, you should hash the password before saving
+            password:hashedPassword, // In a real-world scenario, you should hash the password before saving
             gender,
             phoneNumber
         });
@@ -35,11 +90,12 @@ exports.signupTourist = async (req, res) => {
 exports.signupTourGuide = async (req, res) => {
     try {
         const { fullName, email, password, gender, phoneNumber, experience, speciality } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const tourGuide = new TourGuide({
             fullName,
             email,
-            password, // In a real-world scenario, you should hash the password before saving
+            password:hashedPassword, // In a real-world scenario, you should hash the password before saving
             gender,
             phoneNumber,
             experience,

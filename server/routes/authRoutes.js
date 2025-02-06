@@ -8,5 +8,6 @@ router.post('/signup/tourist', authController.signupTourist);
 
 // Tour Guide Signup Route
 router.post('/signup/tourguide', authController.signupTourGuide);
+router.post('/login',authController.login);
 
 module.exports = router;
