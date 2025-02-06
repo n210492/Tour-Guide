@@ -11,6 +11,78 @@
             document.getElementById("tourGuideForm").style.display = (type === 'tourguide') ? "block" : "none";
         }
     </script>
+    <script>
+        // Handle Tourist Form Submission
+        document.getElementById('touristForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            const touristData = {
+                fullName: document.getElementById('touristFullName').value,
+                email: document.getElementById('touristEmail').value,
+                password: document.getElementById('touristPassword').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                phoneNumber: document.getElementById('touristPhoneNumber').value
+            };
+            console.log(touristData);
+    
+            try {
+                const response = await fetch('/api/auth/signup/tourist', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(touristData)
+                });
+    
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Tourist signup successful!');
+                    console.log(result);
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    
+        // Handle Tour Guide Form Submission
+        document.getElementById('tourGuideForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+    
+            const tourGuideData = {
+                fullName: document.getElementById('tourGuideFullName').value,
+                email: document.getElementById('tourGuideEmail').value,
+                password: document.getElementById('tourGuidePassword').value,
+                gender: document.querySelector('input[name="gender"]:checked').value,
+                phoneNumber: document.getElementById('tourGuidePhoneNumber').value,
+                experience: document.getElementById('tourGuideExperience').value,
+                speciality: document.getElementById('tourGuideSpeciality').value
+            };
+    
+            try {
+                const response = await fetch('/api/auth/signup/tourguide', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(tourGuideData)
+                });
+    
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Tour Guide signup successful!');
+                    console.log(result);
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -22,8 +94,9 @@
                 <button onclick="toggleForm('tourguide')">Tour Guide</button>
             </div>
 
+
             <!-- Tourist Signup Form -->
-            <form id="touristForm" action="#" style="display: none;">
+            <!-- <form id="touristForm" action="#" style="display: none;">
                 <div class="input-box">
                     <input type="text" placeholder="Full Name" required>
                 </div>
@@ -43,10 +116,34 @@
                     <input type="text" placeholder="Phone Number" required>
                 </div>
                 <button type="submit" class="btn">Signup</button>
+            </form> -->
+            <form id="touristForm" action="/api/auth/signup/tourist" method="POST" style="display: none;">
+                <div class="input-box">
+                    <input type="text" id="touristFullName" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="touristEmail" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="touristPassword" placeholder="Password" required>
+                </div>
+                <div class="gender-box">
+                    <label>Gender:</label>
+                    <input type="radio" name="gender" value="male" required> Male
+                    <input type="radio" name="gender" value="female" required> Female
+                    <input type="radio" name="gender" value="other" required> Other
+                </div>
+                <div class="input-box">
+                    <input type="text" id="touristPhoneNumber" placeholder="Phone Number" required>
+                </div>
+                <button type="submit" class="btn">Signup</button>
             </form>
 
-            <!-- Tour Guide Signup Form -->
-            <form id="tourGuideForm" action="#" style="display: none;">
+
+            <!-- Tour Guide Signup Form-->
+
+
+            <!-- <form id="tourGuideForm" action="#" style="display: none;">
                 <div class="input-box">
                     <input type="text" placeholder="Full Name" required>
                 </div>
@@ -78,6 +175,40 @@
                     </select>
                 </div>                
                 <button type="submit" class="btn">Signup</button>
+            </form> -->
+
+            <form id="tourGuideForm" action="/api/auth/signup/tourguide" method="POST" style="display: none;">
+                <div class="input-box">
+                    <input type="text" id="tourGuideFullName" placeholder="Full Name" required>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="tourGuideEmail" placeholder="Email Address" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="tourGuidePassword" placeholder="Password" required>
+                </div>
+                <div class="gender-box">
+                    <label>Gender:</label>
+                    <input type="radio" name="gender" value="male" required> Male
+                    <input type="radio" name="gender" value="female" required> Female
+                    <input type="radio" name="gender" value="other" required> Other
+                </div>
+                <div class="input-box">
+                    <input type="text" id="tourGuidePhoneNumber" placeholder="Phone Number" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="tourGuideExperience" placeholder="Experience (Years)" required>
+                </div>
+                <div class="input-box speciality-box">
+                    <label for="speciality">Speciality:</label>
+                    <select id="tourGuideSpeciality">
+                        <option value="adventure">Adventure Tours</option>
+                        <option value="culture">Culture</option>
+                        <option value="nature">Nature</option>
+                        <option value="historical">Historical Sites</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Signup</button>
             </form>
 
             <div class="switch">
@@ -86,4 +217,4 @@
         </div>
     </div>
 </body>
-</html>
+</html> 

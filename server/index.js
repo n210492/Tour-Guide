@@ -56,7 +56,9 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/bookings', bookingRoutes);
-app.use("/api/signup",authRoutes);
+app.use("/api",authRoutes);
+
+
 
 // Serve index.html for the root route
 app.get('/', (req, res) => {
