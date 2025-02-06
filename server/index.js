@@ -12,13 +12,15 @@ const authRoutes=require("./routes/authRoutes");
 dotenv.config();
 
 const app = express();
-
-// CORS configuration
 app.use(cors({
-  origin: '*', // In production, replace with your actual domain
+  origin: 'http://127.0.0.1:5500',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type']
+  allowedHeaders: ['Content-Type'],
+  credentials: true
 }));
+
+
+// app.use(cors({ origin: 'http://127.0.0.1:5500', credentials: true }));
 
 // Middleware
 app.use(express.json());
