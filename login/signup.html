@@ -113,6 +113,7 @@
                     const result = await response.json();
                     if (response.ok) {
                         alert('Tourist signup successful!');
+                        window.location.href = 'http://127.0.0.1:5500/Tour-Guide/index.html';
                         console.log(result);
                     } else {
                         alert(`Error: ${result.message}`);
@@ -149,6 +150,7 @@
                     console.log("result tourguide",result.json);
                     if (response.ok) {
                         alert('Tour Guide signup successful!');
+                        window.location.href = 'http://127.0.0.1:5500/Tour-Guide/index.html';
                         console.log(result);
                     } else {
                         alert(`Error: ${result.message}`);
