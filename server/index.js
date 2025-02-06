@@ -7,7 +7,7 @@ const path = require('path');
 
 // Import routes
 const bookingRoutes = require('./routes/bookingRoutes');
-
+const authRoutes=require("./routes/authRoutes");
 // Load environment variables
 dotenv.config();
 
@@ -56,6 +56,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/api/bookings', bookingRoutes);
+app.use("/api/signup",authRoutes);
 
 // Serve index.html for the root route
 app.get('/', (req, res) => {
@@ -73,3 +74,4 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log(`Open http://localhost:${PORT} in your browser to view the website`);
 });
+
