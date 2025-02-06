@@ -87,6 +87,18 @@ flatpickr("#datePicker", {
     ]
 });
 
+flatpickr("#datePicker2", {
+    mode: "range",
+    dateFormat: "M j, Y",
+    minDate: "today",
+    showMonths: 1,
+    disable: [
+        function(date) {
+            return date < new Date(); // Disable past dates
+        }
+    ]
+});
+
 document.getElementById("participantBtn").addEventListener("click", function() {
     let menu = document.getElementById("participantMenu");
     menu.style.display = menu.style.display === "block" ? "none" : "block";
@@ -95,8 +107,10 @@ document.getElementById("participantBtn").addEventListener("click", function() {
 function changeCount(type, change) {
     let countSpan = document.getElementById(type + "Count");
     let count = parseInt(countSpan.textContent) + change;
+    if((type==="adult")&(count<=1))
+        {count = 1;}
     if (count < 0) count = 0;
-    if (count > 50) count = 50;
+    if (count >= 50) count = 50;
     countSpan.textContent = count;
     updateParticipantText();
 }
