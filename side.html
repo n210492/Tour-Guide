@@ -209,9 +209,9 @@
 
 <section>
 <div class="checker">
- <div class="booking-bar" data-aos="fade-up" data-aos-delay="100">
+ <div class="booking-bar bar1" data-aos="fade-up" data-aos-delay="100">
       <div class="dropdown-container">
-          <button class="dropdown-btn" id="participantBtn">Adult x 1</button>
+          <button class="dropdown-btn" id="participantBtn">Adult x 1,Child x 0</button>
           <div class="dropdown-menu" id="participantMenu">
               <div>
                   <span>Adult (04-99):&nbsp;&nbsp;</span>
@@ -228,9 +228,32 @@
           </div>
       </div>      
       <input type="text" id="datePicker" class="date-picker" placeholder="Select date range">
-      
       <button class="check-btn">&nbsp;Check availability&nbsp;&nbsp;</button>
   </div>
+
+
+  <div class="booking-bar bar2" data-aos="fade-up" data-aos-delay="100">
+    <div class="dropdown-container">
+        <button class="dropdown-btn" id="participantBtn">Adult x 1,Child x 0</button>
+        <div class="dropdown-menu" id="participantMenu">
+            <div>
+                <span>Adult (04-99):&nbsp;&nbsp;</span>
+                <button onclick="changeCount('adult', -1)">-</button>&nbsp;&nbsp;
+                <span id="adultCount">1</span>&nbsp;&nbsp;
+                <button onclick="changeCount('adult', 1)">+</button>
+            </div>
+            <div>
+                <span>Child (01-04):&nbsp;&nbsp;</span>
+                <button onclick="changeCount('infant', -1)">-</button>&nbsp;&nbsp;
+                <span id="infantCount">0</span>&nbsp;&nbsp; 
+                <button onclick="changeCount('infant', 1)">+</button>
+            </div>
+        </div>
+    </div>      
+    <input type="text" id="datePicker2" class="date-picker" placeholder="Select date range">
+    
+    <button class="check-btn">&nbsp;Check availability&nbsp;&nbsp;</button>
+</div>
 </div>
 </section>
 </main>
