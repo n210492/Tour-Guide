@@ -1,9 +1,5 @@
-/**
- * Main JavaScript file for the Tour Guide website
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+(function() {
+  "use strict";
 
   /**
    * Apply .scrolled class to the body as the page is scrolled down
@@ -28,9 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -60,19 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
    * Preloader
    */
   const preloader = document.querySelector('#preloader');
+  console.log(preloader ? 'Preloader found!' : 'Preloader NOT found!'); // Debug
+  
   if (preloader) {
     window.addEventListener('load', () => {
       console.log('Page loaded. Applying animations...');
-      preloader.classList.add('loaded');
-      console.log('Preloader class added');
-      document.querySelector('body').classList.remove('no-scroll');
+      setTimeout(() => {
+        preloader.classList.add('loaded');
+        console.log('Preloader class added');
+      }, 1000);
+  
       setTimeout(() => {
         preloader.remove();
         console.log('Preloader removed');
-      }, 1000);
+      }, 2000);
     });
   }
-
   /**
    * Scroll top button
    */
@@ -83,15 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  if (scrollTop) {
-    scrollTop.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-  }
+  });
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
@@ -180,126 +175,124 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
-  const mapIframe = document.getElementById('map-iframe');
-  const fullscreenBtn = document.getElementById('fullscreen-btn');
-  const closeBtn = document.getElementById('close-fullscreen-btn');
+})();
 
-  // Function to toggle fullscreen
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      // Enter fullscreen
-      if (mapIframe.requestFullscreen) {
-        mapIframe.requestFullscreen();
-      } else if (mapIframe.mozRequestFullScreen) { // Firefox
-        mapIframe.mozRequestFullScreen();
-      } else if (mapIframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-        mapIframe.webkitRequestFullscreen();
-      } else if (mapIframe.msRequestFullscreen) { // IE/Edge
-        mapIframe.msRequestFullscreen();
-      }
-      // Show the close button
-      closeBtn.style.display = 'block';
-      console.log('Entered fullscreen. Close button should be visible.');
-    } else {
-      // Exit fullscreen
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) { // Firefox
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) { // IE/Edge
-        document.msExitFullscreen();
-      }
-      // Hide the close button
-      closeBtn.style.display = 'none';
-      console.log('Exited fullscreen. Close button should be hidden.');
+
+const mapIframe = document.getElementById('map-iframe');
+const fullscreenBtn = document.getElementById('fullscreen-btn');
+const closeBtn = document.getElementById('close-fullscreen-btn');
+
+// Function to toggle fullscreen
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    // Enter fullscreen
+    if (mapIframe.requestFullscreen) {
+      mapIframe.requestFullscreen();
+    } else if (mapIframe.mozRequestFullScreen) { // Firefox
+      mapIframe.mozRequestFullScreen();
+    } else if (mapIframe.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+      mapIframe.webkitRequestFullscreen();
+    } else if (mapIframe.msRequestFullscreen) { // IE/Edge
+      mapIframe.msRequestFullscreen();
     }
-  }
-
-  // Add event listener to the fullscreen button
-  if (fullscreenBtn) {
-    fullscreenBtn.addEventListener('click', toggleFullscreen);
-  }
-
-  // Add event listener to the close button
-  if (closeBtn) {
-    closeBtn.addEventListener('click', toggleFullscreen);
-  }
-
-  // Handle exiting fullscreen using the Esc key or browser's exit button
-  document.addEventListener('fullscreenchange', () => {
-    if (!document.fullscreenElement) {
-      closeBtn.style.display = 'none'; // Hide the close button when exiting fullscreen
-      console.log('Exited fullscreen via Esc/keyboard. Close button hidden.');
+    // Show the close button
+    closeBtn.style.display = 'block';
+    console.log('Entered fullscreen. Close button should be visible.');
+  } else {
+    // Exit fullscreen
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { // Firefox
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { // Chrome, Safari, and Opera
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // IE/Edge
+      document.msExitFullscreen();
     }
+    // Hide the close button
+    closeBtn.style.display = 'none';
+    console.log('Exited fullscreen. Close button should be hidden.');
+  }
+}
+
+// Add event listener to the fullscreen button
+fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+// Add event listener to the close button
+closeBtn.addEventListener('click', toggleFullscreen);
+
+// Handle exiting fullscreen using the Esc key or browser's exit button
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    closeBtn.style.display = 'none'; // Hide the close button when exiting fullscreen
+    console.log('Exited fullscreen via Esc/keyboard. Close button hidden.');
+  }
+});
+
+// JavaScript to handle image fullscreen with a close button
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all category images
+  const images = document.querySelectorAll(".menu-item a");
+  
+  images.forEach(img => {
+      img.addEventListener("click", function (event) {
+          event.preventDefault();
+          openFullscreen(this.href);
+      });
   });
 
-  // JavaScript to handle image fullscreen with a close button
+  function openFullscreen(imgSrc) {
+      // Create overlay
+      let overlay = document.createElement("div");
+      overlay.id = "fullscreen-overlay";
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100vw";
+      overlay.style.height = "100vh";
+      overlay.style.background = "rgba(0, 0, 0, 0.9)";
+      overlay.style.display = "flex";
+      overlay.style.alignItems = "center";
+      overlay.style.justifyContent = "center";
+      overlay.style.zIndex = "1000";
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Select all category images
-    const images = document.querySelectorAll(".menu-item a");
-    
-    images.forEach(img => {
-        img.addEventListener("click", function (event) {
-            event.preventDefault();
-            openFullscreen(this.href);
-        });
-    });
+      // Create image element
+      let img = document.createElement("img");
+      img.src = imgSrc;
+      img.classList.add("fullscreen-img");
+      img.style.maxWidth = "90%";
+      img.style.maxHeight = "90%";
 
-    function openFullscreen(imgSrc) {
-        // Create overlay
-        let overlay = document.createElement("div");
-        overlay.id = "fullscreen-overlay";
-        overlay.style.position = "fixed";
-        overlay.style.top = "0";
-        overlay.style.left = "0";
-        overlay.style.width = "100vw";
-        overlay.style.height = "100vh";
-        overlay.style.background = "rgba(0, 0, 0, 0.9)";
-        overlay.style.display = "flex";
-        overlay.style.alignItems = "center";
-        overlay.style.justifyContent = "center";
-        overlay.style.zIndex = "1000";
+      // Create close button
+      let closeButton = document.createElement("button");
+      closeButton.innerHTML = "&times;";
+      closeButton.id = "close-btn";
+      closeButton.style.position = "absolute";
+      closeButton.style.top = "20px";
+      closeButton.style.right = "20px";
+      closeButton.style.fontSize = "30px";
+      closeButton.style.background = "red";
+      closeButton.style.color = "white";
+      closeButton.style.border = "none";
+      closeButton.style.padding = "10px 15px";
+      closeButton.style.cursor = "pointer";
+      closeButton.style.zIndex = "1001";
+      
+      // Append elements to overlay
+      overlay.appendChild(img);
+      overlay.appendChild(closeButton);
+      document.body.appendChild(overlay);
 
-        // Create image element
-        let img = document.createElement("img");
-        img.src = imgSrc;
-        img.classList.add("fullscreen-img");
-        img.style.maxWidth = "90%";
-        img.style.maxHeight = "90%";
+      // Close event
+      closeButton.addEventListener("click", closeFullscreen);
+      overlay.addEventListener("click", function(event) {
+          if (event.target === overlay) closeFullscreen();
+      });
+  }
 
-        // Create close button
-        let closeButton = document.createElement("button");
-        closeButton.innerHTML = "&times;";
-        closeButton.id = "close-btn";
-        closeButton.style.position = "absolute";
-        closeButton.style.top = "20px";
-        closeButton.style.right = "20px";
-        closeButton.style.fontSize = "30px";
-        closeButton.style.background = "red";
-        closeButton.style.color = "white";
-        closeButton.style.border = "none";
-        closeButton.style.padding = "10px 15px";
-        closeButton.style.cursor = "pointer";
-        closeButton.style.zIndex = "1001";
-        
-        // Append elements to overlay
-        overlay.appendChild(img);
-        overlay.appendChild(closeButton);
-        document.body.appendChild(overlay);
-
-        // Close event
-        closeButton.addEventListener("click", closeFullscreen);
-        overlay.addEventListener("click", function(event) {
-            if (event.target === overlay) closeFullscreen();
-        });
-    }
-
-    function closeFullscreen() {
-        let overlay = document.getElementById("fullscreen-overlay");
-        if (overlay) overlay.remove();
-    }
-  });
+  function closeFullscreen() {
+      let overlay = document.getElementById("fullscreen-overlay");
+      if (overlay) overlay.remove();
+  }
 });
