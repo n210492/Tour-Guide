@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Wishlist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .wishlist-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            height: 450px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 25px;
+            cursor: pointer;
+            color: red;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .add-to-cart-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Add Details Button */
+        .add-details-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .add-details-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Empty Wishlist Message */
+        .empty-message {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your Wishlist</h1>
+
+        <div class="wishlist-items" id="wishlist-items">
+            <!-- Wishlist items will appear here -->
+        </div>
+    </div>
+
+    <script>
+        function displayWishlist() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const wishlistContainer = document.getElementById('wishlist-items');
+            wishlistContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p class="empty-message">Your wishlist is empty.</p>';
+                return;
+            }
+
+            wishlist.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+
+                card.innerHTML = ` 
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <h4>${item.price}</h4>
+
+                    <span class="remove-btn" onclick="removeFromWishlist(${index})">✖</span>
+
+                    <div class="buttons-container">
+                        <button class="add-to-cart-btn" onclick="addToCart(${index})">Add to Cart</button>
+                        <button class="add-details-btn" onclick="viewDetails('${item.name}')">Details</button>
+                    </div>
+                `;
+
+                wishlistContainer.appendChild(card);
+            });
+        }
+
+        function removeFromWishlist(index) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            displayWishlist();
+        }
+
+        function addToWishlist(item) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+            // Check if the item is already in the wishlist
+            const itemExists = wishlist.some(wishItem => wishItem.name === item.name);
+
+            if (itemExists) {
+                alert(`${item.name} is already in your wishlist!`);
+                return;
+            }
+
+            // Add item to wishlist if not a duplicate
+            wishlist.push(item);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert(`${item.name} has been added to your wishlist!`);
+        }
+
+        function addToCart(index) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = wishlist[index];
+
+            // Check if the item is already in the cart
+            const itemExistsInCart = cart.some(cartItem => cartItem.name === item.name);
+
+            if (itemExistsInCart) {
+                alert(`${item.name} is already in your cart!`);
+                return;
+            }
+
+            // Add item to the cart if it's not a duplicate
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${item.name} has been added to your cart!`);
+        }
+
+        function viewDetails(name) {
+            window.location.href = `details.html?place=${encodeURIComponent(name)}`;
+        }
+
+        window.onload = function() {
+            displayWishlist();
+            
+            // Ensure no duplicates exist when displaying wishlist
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const uniqueWishlist = Array.from(new Set(wishlist.map(a => a.name)))
+                .map(name => wishlist.find(a => a.name === name));
+            localStorage.setItem('wishlist', JSON.stringify(uniqueWishlist));
+            displayWishlist();
+        };
+    </script>
+    
+</body>
+</html>
