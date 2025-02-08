@@ -1,120 +1,60 @@
-const Tourist = require('../models/Tourist');
-const TourGuide = require('../models/TourGuide');
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
+exports.signup = async (req, res) => {
+  try {
+    const { username, email, phone, password } = req.body;
+    
+    let user = await User.findOne({ email });
+    if (user) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
 
+    user = new User({ username, email, phone, password });
+    await user.save();
 
+    res.status(201).json({
+      message: 'User created successfully',
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        phone: user.phone
+      }
+    });
 
-// Login for both Tourist and Tour Guide
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+};
+
 exports.login = async (req, res) => {
-    const { email, password, role } = req.body;
+  try {
+    const { email, password } = req.body;
 
-    try {
-        let user;
-        if (role === 'tourist') {
-            user = await Tourist.findOne({ email });
-        } else if (role === 'tourguide') {
-            user = await TourGuide.findOne({ email });
-        } else {
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid role specified'
-            });
-        }
-
-        // Check if user exists
-        if (!user) {
-            return res.status(404).json({
-                success: false,
-                message: 'User not found'
-            });
-        }
-
-        // Compare passwords
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) {
-            return res.status(400).json({
-                success: false,
-                message: 'Invalid credentials'
-            });
-        }
-
-        // Login successful
-        res.status(200).json({
-            success: true,
-            message: 'Login successful',
-            data: user
-        });
-    } catch (error) {
-        console.error('Error in login:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error during login',
-            error: error.message
-        });
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid credentials' });
     }
-};
 
-// Tourist Signup
-exports.signupTourist = async (req, res) => {
-    try {
-        const { fullName, email, password, gender, phoneNumber } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-
-        const tourist = new Tourist({
-            fullName,
-            email,
-            password:hashedPassword, // In a real-world scenario, you should hash the password before saving
-            gender,
-            phoneNumber
-        });
-
-        await tourist.save();
-
-        res.status(201).json({
-            success: true,
-            message: 'Tourist registered successfully',
-            data: tourist
-        });
-    } catch (error) {
-        console.error('Error in signupTourist:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error registering tourist',
-            error: error.message
-        });
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ message: 'Invalid credentials' });
     }
-};
 
-// Tour Guide Signup
-exports.signupTourGuide = async (req, res) => {
-    try {
-        const { fullName, email, password, gender, phoneNumber, experience, speciality } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
+    res.json({
+      message: 'Login successful',
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        phone: user.phone
+      }
+    });
 
-        const tourGuide = new TourGuide({
-            fullName,
-            email,
-            password:hashedPassword, // In a real-world scenario, you should hash the password before saving
-            gender,
-            phoneNumber,
-            experience,
-            speciality
-        });
-
-        await tourGuide.save();
-
-        res.status(201).json({
-            success: true,
-            message: 'Tour Guide registered successfully',
-            data: tourGuide
-        });
-    } catch (error) {
-        console.error('Error in signupTourGuide:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error registering tour guide',
-            error: error.message
-        });
-    }
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
 };
