@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Top Tourist Destinations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 60px 20px;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            margin-top:30px;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            height: 610px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            position: relative;
+            justify-content: space-between;
+            overflow:hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3,.card p{
+            
+            margin-bottom: 10px;
+            color: #003366;
+        }
+
+        .price {
+            font-size: 2.0rem!important;
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 10px;
+            text-align:center;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #666;
+        
+        }
+
+        /* Visit Button */
+        .visit-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: auto;
+            align-self: center;
+        }
+
+        .visit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Wishlist Icon */
+        .wishlist-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .wishlist-icon:hover {
+            color: #ff4081;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Explore India</h1>
+        <p>Discover the beauty and culture of India</p>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h2>Top Tourist Attractions in India</h2>
+        <div class="cards-container">
+            <!-- Tourist Place 1 -->
+            <div class="card">
+                <img src="amer.jpg" alt="Amber Fort">
+                <h3>Amber Fort</h3>
+                <p class="price">$10</p>
+                <p>A majestic fort with stunning architecture, located near Jaipur.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Amber Fort" data-image="amer.jpg" data-price="$10">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 2 -->
+            <div class="card">
+                <img src="gateway.jpg" alt="Gateway of India">
+                <h3>Gateway of India</h3>
+                <p class="price">$10</p>
+                <p>A majestic structure built during the British era in Mumbai overlooking the Arabian Sea.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Gateway of India" data-image="gateway.jpg" data-price="$10">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 3 -->
+            <div class="card">
+                <img src="citypalace.jpg" alt="City Palace">
+                <h3>City Palace</h3>
+                <p class="price">$20</p>
+                <p>Explore the grandeur and regal charm of this historic palace in the heart of Rajasthan.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="City Palace" data-image="citypalace.jpg" data-price="$20">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 4 -->
+            <div class="card">
+                <img src="qutubminar.jpg" alt="Qutub Minar">
+                <h3>Qutub Minar</h3>
+                <p class="price">$20</p>
+                <p>One of the tallest brick minarets in the world, a UNESCO World Heritage site located in Delhi.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Qutub Minar" data-image="qutubminar.jpg" data-price="$20">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 5 -->
+            <div class="card">
+                <img src="cub.jpg" alt="Cubbon Park">
+                <h3>Cubbon Park</h3>
+                <p class="price">$32</p>
+                <p>A green oasis in the heart of Bangalore, perfect for picnics and nature walks.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Cubbon Park" data-image="cub.jpg" data-price="$32">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 6 -->
+            <div class="card">
+                <img src="elecaves.jpg" alt="Elephanta Caves">
+                <h3>Elephanta Caves</h3>
+                <p class="price">$12</p>
+                <p>Explore the ancient rock-cut temples dedicated to Hindu gods on Elephanta Island, Mumbai.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Elephanta Caves" data-image="elecaves.jpg" data-price="$12">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 7 -->
+            <div class="card">
+                <img src="lal.jpg" alt="Lalbagh Botanical Garden">
+                <h3>Lalbagh Botanical Garden</h3>
+                <p class="price">$22</p>
+                <p>A haven for wildlife lovers, known for its tiger reserve in Rajasthan.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Lalbagh Botanical Garden" data-image="lal.jpg" data-price="$22">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 8 -->
+            <div class="card">
+                <img src="ram.jpg" alt="Ramoji Film City">
+                <h3>Ramoji Film City</h3>
+                <p class="price">$15</p>
+                <p>Experience the spiritual heart of India with a visit to the sacred ghats of Varanasi.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Ramoji Film City" data-image="ram.jpg" data-price="$15">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 9 -->
+            <div class="card">
+                <img src="char.jpg" alt="Charminar">
+                <h3>Charminar</h3>
+                <p class="price">$22</p>
+                <p>Known for its beautiful beaches and crystal-clear waters, a perfect place for island vacations.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Charminar" data-image="char.jpg" data-price="$22">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 10 -->
+            <div class="card">
+                <img src="beng.jpg" alt="Bangalore Palace">
+                <h3>Bangalore Palace</h3>
+                <p class="price">$18</p>
+                <p>Located in Karnataka, this royal palace offers a glimpse into India's royal heritage.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Bangalore Palace" data-image="beng.jpg" data-price="$18">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 11 -->
+            <div class="card">
+                <img src="hawamahal.jpg" alt="Hawa Mahal">
+                <h3>Hawa Mahal</h3>
+                <p class="price">$21</p>
+                <p>Famous for its intricate and erotic sculptures, located in Madhya Pradesh.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Hawa Mahal" data-image="hawamahal.jpg" data-price="$21">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 12 -->
+            <div class="card">
+                <img src="chatrapathi.jpg" alt="Taj Mahal">
+                <h3>Chhatrapati Shivaji Maharaj Terminus</h3>
+                <p class="price">$40</p>
+                <p>The world-renowned white marble mausoleum in Agra.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Chatrapathi" data-image="chatrapathi.jpg" data-price="$40">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 13 -->
+            <div class="card">
+                <img src="golconda.jpg" alt="Meghalaya">
+                <h3>Golconda Fort</h3>
+                <p class="price">$30</p>
+                <p>Known for its pristine waterfalls and lush greenery, located in the northeast.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Meghalaya" data-image="golconda.jpg" data-price="$30">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 14 -->
+            <div class="card">
+                <img src="humanstomb.jpg" alt="Rishikesh">
+                <h3>Humayun's tomb</h3>
+                <p class="price">$25</p>
+                <p>The yoga capital of the world, known for its tranquil rivers and adventure activities.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Rishikesh" data-image="humanstomb.jpg" data-price="$25">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 15 -->
+            <div class="card">
+                <img src="hus.jpg" alt="Kerala Backwaters">
+                <h3>Hussain Sagar Lake</h3>
+                <p class="price">$35</p>
+                <p>Explore the serene backwaters on houseboats in Kerala.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Kerala Backwaters" data-image="hus.jpg" data-price="$35">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 16 -->
+            <div class="card">
+                <img src="indiagate.jpg" alt="Darjeeling">
+                <h3>India Gate</h3>
+                <p class="price">$20</p>
+                <p>Known for its tea gardens and stunning views of the Kanchenjunga mountains.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="India gate" data-image="indiagate.jpg" data-price="$20">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 17 -->
+            <div class="card">
+                <img src="jaisalmer.jpg" alt="Andaman Islands">
+                <h3>Jaisalmer</h3>
+                <p class="price">$50</p>
+                <p>Crystal-clear waters and pristine beaches, a tropical paradise.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Andaman Islands" data-image="jaisalmer.jpg" data-price="$50">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 18 -->
+            <div class="card">
+                <img src="redfort.jpg" alt="Jaisalmer">
+                <h3>Red Fort</h3>
+                <p class="price">$18</p>
+                <p>The Golden City, known for its stunning sand dunes and fort.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Jaisalmer" data-image="redfort.jpg" data-price="$18">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 19 -->
+            <div class="card">
+                <img src="marinedrive.jpg" alt="Badrinath">
+                <h3>Marine Drive</h3>
+                <p class="price">$30</p>
+                <p>One of the Char Dham pilgrimage sites in Uttarakhand.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Badrinath" data-image="marinedrive.jpg" data-price="$30">&#9829;</span>
+            </div>
+
+            <!-- Tourist Place 20 -->
+            <div class="card">
+                <img src="vid.jpg" alt="Manali">
+                <h3>Vidhana Soudha</h3>
+                <p class="price">$25</p>
+                <p>Famous for its snow-capped mountains and adventure activities.</p>
+                <a href="#" class="visit-btn">Visit</a>
+                <span class="wishlist-icon" data-name="Manali" data-image="vid.jpg" data-price="$25">&#9829;</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Explore India. All Rights Reserved. <a href="#">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        // Wait for the DOM to load before attaching event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            const wishlistIcons = document.querySelectorAll('.wishlist-icon');
+            
+            wishlistIcons.forEach(icon => {
+                icon.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevents the default action (link behavior)
+    
+                    const placeName = e.target.getAttribute('data-name');
+                    const placeImage = e.target.getAttribute('data-image');
+                    const price=e.target.getAttribute('data-price');
+                
+                    alert(`${placeName} added to your wishlist!`);
+                    
+                    // You can also store this in localStorage or sessionStorage to persist the wishlist
+                    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                    wishlist.push({ name: placeName, image: placeImage,price:price});
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    
+                    console.log('Current wishlist:', wishlist); // For debugging
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
