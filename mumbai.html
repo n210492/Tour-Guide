@@ -63,20 +63,20 @@
         .card {
             background-color: white;
             width: 300px;
-            height: 480px; /* Fixed height for consistency */
+            height: 520px; /* Increased height to accommodate price */
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Ensures the button is at the bottom of the card */
+            justify-content: space-between;
             padding: 15px;
             overflow: hidden;
-            position: relative; /* Needed for wishlist icon */
+            position: relative;
         }
 
         .card img {
             width: 100%;
-            height: 60%; /* Fixed height for images */
+            height: 60%;
             object-fit: cover;
             margin-bottom: 15px;
         }
@@ -90,7 +90,15 @@
         .card p {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         .visit-btn {
@@ -101,16 +109,15 @@
             border-radius: 20px;
             text-decoration: none;
             font-size: 1rem;
+            margin-top: auto;
             text-align: center;
-            margin-top: 10px; /* Ensures spacing between description and button */
-            align-self: center; /* Ensures the button is horizontally centered */
+            align-self: center;
         }
 
         .visit-btn:hover {
             background-color: #0056b3;
         }
 
-        /* Wishlist Icon */
         .wishlist-icon {
             position: absolute;
             top: 10px;
@@ -121,7 +128,7 @@
         }
 
         .wishlist-icon:hover {
-            color: #ff4081; /* Change color on hover */
+            color: #ff4081;
         }
 
         /* Footer Section */
@@ -155,40 +162,37 @@
     <div class="main-content">
         <h2>Top Tourist Attractions in Mumbai</h2>
         <div class="cards-container">
-            <!-- Place 1: Gateway of India -->
             <div class="card">
                 <img src="gateway.jpg" alt="Gateway of India">
                 <h3>Gateway of India</h3>
-                <p>A historic monument built during the British Raj. It is an iconic symbol of Mumbai and an architectural marvel standing at the edge of the Arabian Sea.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>A historic monument built during the British Raj. It is an iconic symbol of Mumbai.</p>
+                <div class="price">$20</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Gateway of India" data-image="gateway.jpg" data-price="$20">&#9829;</a>
             </div>
-
-            <!-- Place 2: Marine Drive -->
             <div class="card">
                 <img src="marinedrive.jpg" alt="Marine Drive">
                 <h3>Marine Drive</h3>
-                <p>Also known as the ‘Queen’s Necklace’, Marine Drive is a 3.6 km long promenade along the Arabian Sea, offering breathtaking views of the coastline, especially during the evening.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>A 3.6 km long promenade along the Arabian Sea, known as the ‘Queen’s Necklace’.</p>
+                <div class="price">$15</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Marine Drive" data-image="marinedrive.jpg" data-price="$15">&#9829;</a>
             </div>
-
-            <!-- Place 3: Elephanta Caves -->
             <div class="card">
                 <img src="elecaves.jpg" alt="Elephanta Caves">
                 <h3>Elephanta Caves</h3>
-                <p>Located on Elephanta Island, these ancient rock-cut caves are known for their intricate sculptures and temples dedicated to Hindu gods. A UNESCO World Heritage site.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>Ancient rock-cut caves known for intricate sculptures and temples dedicated to Hindu gods.</p>
+                <div class="price">$18</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Elephanta Caves" data-image="elecaves.jpg" data-price="$18">&#9829;</a>
             </div>
-
-            <!-- Place 4: Chhatrapati Shivaji Maharaj Terminus -->
             <div class="card">
                 <img src="chatrapathi.jpg" alt="Chhatrapati Shivaji Maharaj Terminus">
                 <h3>Chhatrapati Shivaji Maharaj Terminus</h3>
-                <p>One of Mumbai's busiest railway stations, this Victorian Gothic architectural gem has been declared a UNESCO World Heritage site due to its stunning design and historical significance.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>A UNESCO World Heritage site known for its stunning Victorian Gothic architecture.</p>
+                <div class="price">$12</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Chhatrapati Shivaji Maharaj Terminus" data-image="chatrapathi.jpg" data-price="$12">&#9829;</a>
             </div>
         </div>
     </div>
@@ -196,8 +200,29 @@
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Explore Mumbai | All Rights Reserved</p>
-        <p>Visit our <a href="https://example.com">official site</a> for more details</p>
+        <p>Visit our <a href="#">official site</a> for more details</p>
     </footer>
 
+    <script>
+        document.querySelectorAll('.wishlist-icon').forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+                const item = {
+                    name: this.getAttribute('data-name'),
+                    image: this.getAttribute('data-image'),
+                    price: this.getAttribute('data-price')
+                };
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                const itemExists = wishlist.some(existingItem => existingItem.name === item.name);
+                if (itemExists) {
+                    alert(`${item.name} is already in your wishlist!`);
+                } else {
+                    wishlist.push(item);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    alert(`${item.name} has been added to your wishlist!`);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
