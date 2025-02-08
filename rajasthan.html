@@ -23,7 +23,7 @@
 
         /* Hero Section */
         .hero {
-            background-color: #003366;
+            background-color: #9e2a2f;
             color: white;
             text-align: center;
             padding: 100px 20px;
@@ -50,7 +50,7 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 30px;
-            color: #003366;
+            color: #9e2a2f;
         }
 
         .cards-container {
@@ -63,7 +63,7 @@
         .card {
             background-color: white;
             width: 300px;
-            height: 480px; /* Fixed height for consistency */
+            height: 520px; /* Increased height to accommodate price */
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -76,7 +76,7 @@
 
         .card img {
             width: 100%;
-            height: 60%; /* Fixed height for images */
+            height: 60%;
             object-fit: cover;
             margin-bottom: 15px;
         }
@@ -84,13 +84,21 @@
         .card h3 {
             font-size: 1.7rem;
             margin-bottom: 10px;
-            color: #003366;
+            color: #9e2a2f;
         }
 
         .card p {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         .visit-btn {
@@ -101,16 +109,15 @@
             border-radius: 20px;
             text-decoration: none;
             font-size: 1rem;
-            margin-top: auto; /* Pushes the button to the bottom of the card */
+            margin-top: auto;
             text-align: center;
-            align-self: center; /* Centers the button horizontally */
+            align-self: center;
         }
 
         .visit-btn:hover {
             background-color: #0056b3;
         }
 
-        /* Wishlist Icon */
         .wishlist-icon {
             position: absolute;
             top: 10px;
@@ -121,12 +128,12 @@
         }
 
         .wishlist-icon:hover {
-            color: #ff4081; /* Change color on hover */
+            color: #ff4081;
         }
 
         /* Footer Section */
         footer {
-            background-color: #003366;
+            background-color: #9e2a2f;
             color: white;
             padding: 20px;
             text-align: center;
@@ -155,40 +162,40 @@
     <div class="main-content">
         <h2>Top Tourist Attractions in Rajasthan</h2>
         <div class="cards-container">
-            <!-- Place 1: Amber Fort -->
             <div class="card">
                 <img src="amer.jpg" alt="Amber Fort">
                 <h3>Amber Fort</h3>
                 <p>A majestic fort with stunning architecture, located near Jaipur.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <div class="price">$20</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Amber Fort" data-image="amer.jpg" data-price="$20">&#9829;</a>
             </div>
 
-            <!-- Place 2: City Palace, Udaipur -->
             <div class="card">
                 <img src="citypalace.jpg" alt="City Palace, Udaipur">
-                <h3>Udaipur Palace</h3>
+                <h3>City Palace</h3>
                 <p>Known for its intricate architecture and beautiful lake views.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <div class="price">$25</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Udaipur Palace" data-image="citypalace.jpg" data-price="$25">&#9829;</a>
             </div>
 
-            <!-- Place 3: Jaisalmer Fort -->
             <div class="card">
                 <img src="jaisalmer.jpg" alt="Jaisalmer Fort">
-                <h3> Jaisalmer Fort</h3>
+                <h3>Jaisalmer Fort</h3>
                 <p>A UNESCO World Heritage Site, known as the Golden Fort of Rajasthan.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <div class="price">$30</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Jaisalmer Fort" data-image="jaisalmer.jpg" data-price="$30">&#9829;</a>
             </div>
 
-            <!-- Place 4: Hawa Mahal -->
             <div class="card">
                 <img src="hawamahal.jpg" alt="Hawa Mahal">
-                <h3> Hawa Mahal</h3>
+                <h3>Hawa Mahal</h3>
                 <p>The iconic "Palace of Winds" with 953 small windows.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <div class="price">$15</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Hawa Mahal" data-image="hawamahal.jpg" data-price="$15">&#9829;</a>
             </div>
         </div>
     </div>
@@ -196,8 +203,31 @@
     <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Explore Rajasthan | All Rights Reserved</p>
-        <p>Visit our <a href="https://example.com">official site</a> for more details</p>
+        <p>Visit our <a href="#">official site</a> for more details</p>
     </footer>
 
+    <script>
+        document.querySelectorAll('.wishlist-icon').forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+                
+                const item = {
+                    name: this.getAttribute('data-name'),
+                    image: this.getAttribute('data-image'),
+                    price: this.getAttribute('data-price')
+                    
+                };
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                const itemExists = wishlist.some(existingItem => existingItem.name === item.name);
+                if (itemExists) {
+                    alert(`${item.name} is already in your wishlist!`);
+                } else {
+                    wishlist.push(item);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    alert(`${item.name} has been added to your wishlist!`);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
