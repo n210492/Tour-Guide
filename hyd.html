@@ -63,7 +63,7 @@
         .card {
             background-color: white;
             width: 300px;
-            height: 480px; /* Fixed height for consistency */
+            height: 520px; /* Adjusted height to accommodate price */
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -76,7 +76,7 @@
 
         .card img {
             width: 100%;
-            height: 60%; /* Fixed height for images */
+            height: 60%;
             object-fit: cover;
             margin-bottom: 15px;
         }
@@ -90,7 +90,15 @@
         .card p {
             font-size: 1rem;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 10px;
         }
 
         .visit-btn {
@@ -101,9 +109,8 @@
             border-radius: 20px;
             text-decoration: none;
             font-size: 1rem;
-            margin-top: auto; /* Pushes the button to the bottom of the card */
             text-align: center;
-            align-self: center; /* Centers the button horizontally */
+            align-self: center;
         }
 
         .visit-btn:hover {
@@ -121,83 +128,80 @@
         }
 
         .wishlist-icon:hover {
-            color: #ff4081; /* Change color on hover */
-        }
-
-        /* Footer Section */
-        footer {
-            background-color: #003366;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer a {
-            color: #fff;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+            color: #ff4081;
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
     <div class="hero">
         <h1>Explore Hyderabad</h1>
-        <p>The City of Pearls, A Blend of Tradition and Modernity</p>
+        <p>The Pearl City, A Fusion of Tradition & Modernity</p>
     </div>
 
-    <!-- Main Content Section -->
     <div class="main-content">
         <h2>Top Tourist Attractions in Hyderabad</h2>
         <div class="cards-container">
-            <!-- Place 1: Charminar -->
             <div class="card">
                 <img src="char.jpg" alt="Charminar">
                 <h3>Charminar</h3>
-                <p>The iconic monument and mosque that symbolizes the grandeur of Hyderabad.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>Iconic structure and a symbol of Hyderabad.</p>
+                <div class="price">$10</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Charminar" data-image="char.jpg" data-price="$10">&#9829;</a>
             </div>
-
-            <!-- Place 2: Golconda Fort -->
             <div class="card">
                 <img src="golconda.jpg" alt="Golconda Fort">
                 <h3>Golconda Fort</h3>
-                <p>A historical fort with spectacular views and rich history.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>Historic fort offering panoramic views.</p>
+                <div class="price">$15</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Golconda Fort" data-image="golconda.jpg" data-price="$15">&#9829;</a>
             </div>
-
-            <!-- Place 3: Hussain Sagar Lake -->
             <div class="card">
                 <img src="hus.jpg" alt="Hussain Sagar Lake">
                 <h3>Hussain Sagar Lake</h3>
-                <p>A beautiful lake with boat rides and a statue of Buddha on an island.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>Beautiful lake with a Buddha statue.</p>
+                <div class="price">$8</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Hussain Sagar Lake" data-image="hus.jpg" data-price="$8">&#9829;</a>
             </div>
-
-            <!-- Place 4: Ramoji Film City -->
             <div class="card">
                 <img src="ram.jpg" alt="Ramoji Film City">
                 <h3>Ramoji Film City</h3>
-                <p>A vast film studio complex, offering entertainment and behind-the-scenes tours.</p>
-                <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <p>One of the largest film studio complexes.</p>
+                <div class="price">$25</div>
+                <a href="#" class="visit-btn">Visit</a>
+                <a href="#" class="wishlist-icon" data-name="Ramoji Film City" data-image="ram.jpg" data-price="$25">&#9829;</a>
             </div>
         </div>
     </div>
 
-    <!-- Footer Section -->
     <footer>
         <p>&copy; 2025 Explore Hyderabad | All Rights Reserved</p>
-        <p>Visit our <a href="https://example.com">official site</a> for more details</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('.wishlist-icon').forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+                const item = {
+                    name: this.getAttribute('data-name'),
+                    image: this.getAttribute('data-image'),
+                    price: this.getAttribute('data-price')
+                };
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                const itemExists = wishlist.some(existingItem => existingItem.name === item.name);
+                if (itemExists) {
+                    alert(`${item.name} is already in your wishlist!`);
+                } else {
+                    wishlist.push(item);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    alert(`${item.name} has been added to your wishlist!`);
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
