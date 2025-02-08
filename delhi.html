@@ -62,8 +62,8 @@
 
         .card {
             background-color: white;
-            width: 300px;
-            height: 480px; /* Fixed height for consistency */
+            width: 320px;
+            height: 550px;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             display: flex;
@@ -72,19 +72,27 @@
             padding: 15px;
             overflow: hidden;
             position: relative;
+            text-align: center;
         }
 
         .card img {
             width: 100%;
-            height: 60%; /* Fixed height for images */
+            height: 250px;
             object-fit: cover;
-            margin-bottom: 15px;
+            border-radius: 10px;
         }
 
         .card h3 {
-            font-size: 1.7rem;
-            margin-bottom: 10px;
+            font-size: 1.8rem;
+            margin: 10px 0;
             color: #003366;
+        }
+
+        .price {
+            font-size: 2.0rem!important; /* Increased size */
+            font-weight: bold;
+            color: #d9534f; /* Red for emphasis */
+            margin-bottom: 10px;
         }
 
         .card p {
@@ -101,9 +109,7 @@
             border-radius: 20px;
             text-decoration: none;
             font-size: 1rem;
-            margin-top: auto; /* Pushes the button to the bottom of the card */
             text-align: center;
-            align-self: center; /* Centers the button horizontally */
         }
 
         .visit-btn:hover {
@@ -121,7 +127,7 @@
         }
 
         .wishlist-icon:hover {
-            color: #ff4081; /* Change color on hover */
+            color: #ff4081;
         }
 
         /* Footer Section */
@@ -159,36 +165,40 @@
             <div class="card">
                 <img src="redfort.jpg" alt="Red Fort">
                 <h3>Red Fort</h3>
+                <p class="price">$30</p>
                 <p>A UNESCO World Heritage site, an iconic symbol of India's history.</p>
                 <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <a href="#" class="wishlist-icon" data-name="Red Fort" data-image="redfort.jpg" data-price="$30">&#9829;</a>
             </div>
 
             <!-- Place 2: Qutub Minar -->
             <div class="card">
                 <img src="qutubminar.jpg" alt="Qutub Minar">
                 <h3>Qutub Minar</h3>
+                <p class="price">$20</p>
                 <p>The tallest brick minaret in the world, with stunning carvings.</p>
                 <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <a href="#" class="wishlist-icon" data-name="Qutub Minar" data-image="qutubminar.jpg" data-price="$20">&#9829;</a>
             </div>
 
             <!-- Place 3: India Gate -->
             <div class="card">
                 <img src="indiagate.jpg" alt="India Gate">
                 <h3>India Gate</h3>
+                <p class="price">Free</p>
                 <p>A war memorial and national landmark honoring Indian soldiers.</p>
                 <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <a href="#" class="wishlist-icon" data-name="India Gate" data-image="indiagate.jpg" data-price="Free">&#9829;</a>
             </div>
 
             <!-- Place 4: Humayun's Tomb -->
             <div class="card">
                 <img src="humanstomb.jpg" alt="Humayun's Tomb">
                 <h3>Humayun's Tomb</h3>
+                <p class="price">$16</p>
                 <p>The tomb of Mughal Emperor Humayun, a beautiful architectural wonder.</p>
                 <a href="https://example.com" class="visit-btn">Visit</a>
-                <a href="wishlist.html" class="wishlist-icon">&#9829;</a> <!-- Heart icon for wishlist -->
+                <a href="#" class="wishlist-icon" data-name="Humayun's Tomb" data-image="humanstomb.jpg" data-price="$16">&#9829;</a>
             </div>
         </div>
     </div>
@@ -198,6 +208,36 @@
         <p>&copy; 2025 Explore Delhi | All Rights Reserved</p>
         <p>Visit our <a href="https://example.com">official site</a> for more details</p>
     </footer>
+
+    <!-- JavaScript for Wishlist Functionality -->
+    <script>
+        document.querySelectorAll('.wishlist-icon').forEach(icon => {
+            icon.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Get item details from data attributes
+                const item = {
+                    name: this.getAttribute('data-name'),
+                    image: this.getAttribute('data-image'),
+                    price: this.getAttribute('data-price')
+                };
+
+                // Get the current wishlist from localStorage
+                let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+                // Check if the item is already in the wishlist
+                const itemExists = wishlist.some(existingItem => existingItem.name === item.name);
+
+                if (itemExists) {
+                    alert(`${item.name} is already in your wishlist!`);
+                } else {
+                    wishlist.push(item);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    alert(`${item.name} has been added to your wishlist!`);
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
