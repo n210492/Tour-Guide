@@ -44,20 +44,18 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- <img src="assets/img/logo.png" alt="">  -->
         <h1 class="sitename">Travel</h1>
         <span>.</span>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="index.html#home" class="active">Home<br></a></li>
+          <li><a href="all.html">Locations</a></li>
+          <li><a href="cities.html">Cities</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="cart.html">Cart</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#menu">Category</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#developers">Developers</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -114,7 +112,7 @@
             <h1 data-aos="fade-up">Enjoy Your Journey with Our Professional Guide</h1>
             <p data-aos="fade-up" data-aos-delay="100">We are team of talented Guides to Guide our Precious Tourists</p>
             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-              <a href="#book-a-table" class="btn-get-started">Book a Guide</a>&nbsp;&nbsp;              <a href="#about" class="btn-get-started">About Us</a>
+              <a href="all.html" class="btn-get-started">Book a Guide</a>&nbsp;&nbsp;              <a href="#about" class="btn-get-started">About Us</a>
             </div>
           </div>
           <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
@@ -135,17 +133,43 @@
 
       <div class="info1">
         <div class="pic">
-          <img class="back" src="pngs/guidesearch.png" alt="">
+          <img class="back" src="pngs/sunset.jpg" alt="">
         </div>
         <div class="check">
           <div class="searcher">
-          <form action="">
-            <input type="search" name="search" pattern=".*\S.*" required placeholder="Search a place.....">
-            <button class="search-btn" type="submit">
-              <span><i class="fas fa-search" id="search-btn"></i></span>
-            </button>
-          </form>
+            <div class="search-container">
+              <span class="search-btn"><i class="fa fa-search"></i></span>
+              <input type="search" id="searchInput" placeholder="Search..." class="search-input">
+            </div>
+
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const searchInput = document.getElementById("searchInput");
+                const searchButton = document.querySelector(".search-btn");
+            
+                searchButton.addEventListener("click", function () {
+                    performSearch(searchInput.value);
+                });
+            
+                searchInput.addEventListener("keypress", function (event) {
+                    if (event.key === "Enter") {
+                        performSearch(searchInput.value);
+                    }
+                });
+            
+                function performSearch(query) {
+                    if (query.trim() !== "") {
+                        console.log("Searching for:", query);
+                        // Add your search functionality here, such as filtering results
+                    } else {
+                        console.log("Search input is empty");
+                    }
+                }
+            });
+            
+            </script>
         </div>
+
           
           <div class="booking-bar bar1" data-aos="fade-up" data-aos-delay="100">
             <div class="dropdown-container">

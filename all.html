@@ -32,135 +32,12 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/place.css" rel="stylesheet">
-  
-  <style>
-    body{
-        line-height: 1em;
-    }
+  <link href="assets/css/city.css" rel="stylesheet">
 
-    h1 {
-        text-align: center;
-    }
-
-    .wishlist-items {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 75px;
-    }
-
-    /* From Uiverse.io by gharsh11032000 */ 
-.card {
-  position: relative;
-  width: 250px;
-  height: 330px;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  left: -8px;
-  margin: auto;
-  width: 106.5%;
-  height: 107%;
-  border-radius: 10px;
-  background: linear-gradient(-45deg, #e81cff 20%, #40c9ff 80% );
-  z-index: -10;
-  pointer-events: none;
-  transition: all .3s;
-}
-
-.card::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  inset: 0;
-  transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
-}
-
-.card:hover::after {
-  filter: blur(30px);
-}
-
-.card:hover::before {
-  transform: scale(1.05) ;
-}
-
-.card img{
-  width: 100%;
-  height:50%;
-  border-radius: 8px 8px 0 0 ;
-}
-
-
-    .remove-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 25px;
-        cursor: pointer;
-        color: red;
-    }
-
-    .buttons-container {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .add-to-cart-btn {
-        background-color: #28a745;
-        color: white;
-        padding: 10px 20px;
-        border-radius: 20px;
-        text-decoration: none;
-        font-size: 1rem;
-        cursor: pointer;
-        border: none;
-    }
-
-    .add-to-cart-btn:hover {
-        background-color: #218838;
-    }
-
-    /* Add Details Button */
-    .add-details-btn {
-        background-color: #007bff;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-size: 1rem;
-        cursor: pointer;
-        border: none;
-    }
-
-    .add-details-btn:hover {
-        background-color: #0056b3;
-    }
-
-    /* Empty Wishlist Message */
-    .empty-message {
-        text-align: center;
-        font-size: 1.5rem;
-        color: #666;
-    }
-
-    .footer{
-        margin-top:300px;
-    }
-</style>
 </head>
 
 <body class="index-page">
+
   <header id="header" class="header d-flex align-items-center sticky-top" style="background-color:black;">
     <div class="container position-relative d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
@@ -172,10 +49,10 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html#home">Home<br></a></li>
-          <li><a href="all.html">Locations</a></li>
+          <li><a href="all.html" class="active">Locations</a></li>
           <li><a href="cities.html">Cities</a></li>
           <li><a href="wishlist.html">Wishlist</a></li>
-          <li><a href="cart.html" class="active">Cart</a></li>
+          <li><a href="cart.html">Cart</a></li>
           <li><a href="#about">About</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -192,73 +69,162 @@
   </header>
 
 <main>
-        <div class="container">
-            <br><br>
-            <h1>Your Cart</h1>
-            <br><br>
-    
-            <div class="cart-items" id="cart-items">
-                <!-- Cart items will appear here -->
-            </div>
-        </div>
-    
-        <script>
-            function displayCart() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                const cartContainer = document.getElementById('cart-items');
-                cartContainer.innerHTML = '';
-    
-                if (cart.length === 0) {
-                    cartContainer.innerHTML = '<p class="empty-message">Your cart is empty.</p>';
-                    return;
-                }
-    
-                cart.forEach((item, index) => {
-                    const cartItem = document.createElement('div');
-                    cartItem.classList.add('cart-item');
-    
-                    cartItem.innerHTML = ` 
-                        <img src="${item.image}" alt="${item.name}">
-                        <h3>${item.name}</h3>
-                        <h2>${item.price}</h2>
-                        <span class="remove-btn" onclick="removeFromCart(${index})">✖</span>
-                        <div class="buttons-container">
-                            <button class="remove-from-cart-btn" onclick="removeFromCart(${index})">Remove</button>
-                            <button onclick="window.location.href='booking.html?place=${encodeURIComponent(item.name)}'" class="book-now-btn">Book Now</button>
-                        </div>
-                    `;
+<div class="hero" style="background:url(imgs/cities/india.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;">
+        <h1>Explore All Places in India</h1><br>
+    </div>
 
-                    /* card.innerHTML = `
-                <span class="remove-btn" onclick="removeFromCart(${index})">✖</span>
-                <p class="place" style="margin-left: 10px;">Red Fort</p>
-                 <p  style="margin-left: 10px;font-size:15px">Historical : 1hr duration</p>
-                 <p  style="margin:8px 0 0 10px;font-size:15px">Rating: 4.9/5</p>
-                <div class="det2">
-                <div class="det">
-                <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
-                <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
-                  
-              `; */
-    
-                    cartContainer.appendChild(cartItem);
-                });
-            }
-    
-            function removeFromCart(index) {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                displayCart();
-            }
-    
-            window.onload = displayCart;
-        </script>
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h2>Top Tourist Places in India</h2><br><br>
+        <button class="filter" onclick="openFilterPopup()">Filter</button>
 
-        
-  
+<!-- Filter Popup -->
+<div id="filterOverlay" class="filter-overlay"></div>
+<div id="filterPopup" class="filter-popup">
+  <div class="filter-content">
+    <span class="close" onclick="closeFilterPopup()">&times;</span>
+    <h2 style="font-size:30px;">Filter Options</h2>
+    
+    <!-- Category Filter -->
+    <div class="selector">
+    <div id="category">
+      <label>Category:</label><br>
+      <label><input type="checkbox" value="Historical" class="category-checkbox"> Historical</label><br>
+      <label><input type="checkbox" value="Cultural" class="category-checkbox"> Cultural</label><br>
+      <label><input type="checkbox" value="Nature" class="category-checkbox"> Nature</label><br>
+      <label><input type="checkbox" value="Food" class="category-checkbox"> Food</label><br>
+      <label><input type="checkbox" value="Modern" class="category-checkbox"> Modern</label><br>
+      <label><input type="checkbox" value="Adventure" class="category-checkbox"> Adventure</label><br>
+      <label><input type="checkbox" value="Entertainment" class="category-checkbox"> Entertainment</label><br>
+      <label><input type="checkbox" value="Museum" class="category-checkbox"> Museum</label>
+    </div>
+
+    
+    <div id="city">
+      <label>City:</label><br>
+      <label><input type="checkbox" value="chennai" class="city-checkbox"> Chennai</label><br>
+      <label><input type="checkbox" value="mumbai" class="city-checkbox"> Mumbai</label><br>
+      <label><input type="checkbox" value="hyderabad" class="city-checkbox"> Hyderabad</label><br>
+      <label><input type="checkbox" value="delhi" class="city-checkbox"> Delhi</label><br>
+      <label><input type="checkbox" value="bangalore" class="city-checkbox"> Bangalore</label><br>
+      <label><input type="checkbox" value="jammu" class="city-checkbox"> Jammu</label><br>
+    </div>
+  </div>
+    
+    <!-- Price Sorting -->
+    <label for="sortPrice">Sort Price:</label>
+    <select id="sortPrice">
+      <option value="none">None</option>
+      <option value="lowToHigh">Low to High</option>
+      <option value="highToLow">High to Low</option>
+    </select>
+    
+    <!-- Price Range Slider -->
+    <label>Price Range (₹100 - ₹2,000):</label>
+    <input type="range" id="priceRange" min="100" max="2000" value="2000" oninput="updatePriceValue()">
+    <span id="priceValue">₹2000</span>
+    
+    <!-- Apply and Remove Filter Buttons -->
+    <div class="filter-btns">
+    <button onclick="applyFilters()">Apply Filters</button>
+    <button onclick="removeFilters()">Remove Filters</button>
+  </div>
+  </div>
+</div>
+
+  <div class="cards-container" data-aos="fade-up" data-aos-delay="100">
+    <div class="card">
+    <img src="imgs/Categories/Historical/red-fort.jpg" alt="">  
+    <div class="dets"> 
+     <div class="con-like">
+    <input class="like" type="checkbox" title="like" onchange="addToWishlist(item)">
+    <div class="checkmark">
+    <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
+    <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+    </svg>
+   <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
+  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+   </svg>
+   <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
+  <polygon class="poly" points="10,10 20,20"></polygon>
+  <polygon class="poly" points="10,50 20,50"></polygon>
+  <polygon class="poly" points="20,80 30,70"></polygon>
+  <polygon class="poly" points="90,10 80,20"></polygon>
+  <polygon class="poly" points="90,50 80,50"></polygon>
+  <polygon class="poly" points="80,80 70,70"></polygon>
+  </svg>
+  </div></div>   
+     
+  <p class="place" style="margin-left: 10px;">Red Fort</p>
+  <p  style="margin-left: 10px;font-size:15px">Historical : 1hr duration</p>
+  <p  style="margin:8px 0 0 10px;font-size:15px">Rating: 4.9/5</p>
+  <div class="det2">
+  <div class="det">
+    <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
+    <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
+  </div> 
+  <a href="side.html">></a></div>
+</div>
+</div> 
+</div>
+</div> 
+
+<script>
+  function toggleWishlist(event) {
+      const card = event.target.closest(".card");
+      const imageSrc = card.querySelector("img").src;
+      const placeName = card.querySelector("p").innerText;
+
+      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+      if (event.target.checked) {
+          if (!wishlist.some(item => item.name === placeName)) {
+              wishlist.push({ name: placeName, image: imageSrc });
+              localStorage.setItem("wishlist", JSON.stringify(wishlist));
+          }
+      } 
+      else {
+          wishlist = wishlist.filter(item => item.name !== placeName);
+          localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      }
+
+      syncWishlist();
+  }
+
+  function syncWishlist() {
+      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      document.querySelectorAll(".card").forEach(card => {
+          const placeName = card.querySelector("p").innerText;
+          const heartCheckbox = card.querySelector(".like");
+
+          heartCheckbox.checked = wishlist.some(item => item.name === placeName);
+      });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".like").forEach(button => {
+          button.addEventListener("change", toggleWishlist);
+      });
+
+      syncWishlist();
+  });
+
+  window.addEventListener("storage", function(event) {
+      if (event.key === "wishlist") {
+          syncWishlist();
+      }
+  });
+</script>
+
 </main>
+
 <br><br>
-  <div id="footer" class="footer dark-background">
+
+  <footer id="footer" class="footer dark-background">
     <div class="container">
       <div class="row gy-3">
         <div class="col-lg-3 col-md-6 d-flex">
@@ -312,7 +278,7 @@
         Designed by <a href="https://bootstrapmade.com/">Team2Gether</a>
       </div>
     </div>
-</div>
+  </footer>
 
 
   <!-- Scroll Top -->
@@ -328,8 +294,12 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/side.js"></script>
+  <script src="assets/js/place.js"></script>
+
+  <script src="assets/js/filter.js"></script>
 </body>
 </html>
