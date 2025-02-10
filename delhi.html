@@ -48,11 +48,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html#hero" class="active">Home<br></a></li>
+          <li><a href="index.html#home" >Home<br></a></li>
+          <li><a href="all.html">Locations</a></li>
+          <li><a href="cities.html" class="active">Cities</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="cart.html">Cart</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#menu">Category</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>     
@@ -68,13 +69,13 @@
   </header>
 
 <main>
-<div class="hero" style="background:url(imgs/delhi.jpg);
+<div class="hero" style="background:url(imgs/cities/delhi.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;">
-        <h1>Explore Delhi</h1><br>
-        <p>The Heart of India, A City of History and Modernity</p>
+        <h1 style="color: white;font-weight:bolder">Explore Delhi</h1><br>
+        <p style="color: aliceblue;">The Heart of India, A City of History and Modernity</p>
     </div>
 
     <!-- Main Content Section -->
@@ -87,20 +88,21 @@
 <div id="filterPopup" class="filter-popup">
   <div class="filter-content">
     <span class="close" onclick="closeFilterPopup()">&times;</span>
-    <h2>Filter Options</h2>
+    <h2 style="font-size: 30px;">Filter Options</h2>
     
     <!-- Category Filter -->
-    <label>Category:</label>
+    <b><label>Category:</label></b>
     <div id="category">
-      <label><input type="checkbox" value="Historical" class="category-checkbox"> Historical</label>
-      <label><input type="checkbox" value="Cultural" class="category-checkbox"> Cultural</label>
-      <label><input type="checkbox" value="Nature" class="category-checkbox"> Nature</label>
-      <label><input type="checkbox" value="Food" class="category-checkbox"> Food</label>
-      <label><input type="checkbox" value="Modern" class="category-checkbox"> Modern</label>
-      <label><input type="checkbox" value="Adventure" class="category-checkbox"> Adventure</label>
-      <label><input type="checkbox" value="Entertainment" class="category-checkbox"> Entertainment</label>
-      <label><input type="checkbox" value="Museum" class="category-checkbox"> Museum</label>
+      <label><input type="checkbox" value="Historical" class="category-checkbox"> Historical</label><br>
+      <label><input type="checkbox" value="Cultural" class="category-checkbox"> Cultural</label><br>
+      <label><input type="checkbox" value="Nature" class="category-checkbox"> Nature</label><br>
+      <label><input type="checkbox" value="Food" class="category-checkbox"> Food</label><br>
+      <label><input type="checkbox" value="Modern" class="category-checkbox"> Modern</label><br>
+      <label><input type="checkbox" value="Adventure" class="category-checkbox"> Adventure</label><br>
+      <label><input type="checkbox" value="Entertainment" class="category-checkbox"> Entertainment</label><br>
+      <label><input type="checkbox" value="Museum" class="category-checkbox"> Museum</label><br>
     </div>
+    
     
     <!-- Price Sorting -->
     <label for="sortPrice">Sort Price:</label>
@@ -116,8 +118,9 @@
     <span id="priceValue">₹2000</span>
     
     <!-- Apply and Remove Filter Buttons -->
+     <div class="filter-btns">
     <button onclick="applyFilters()">Apply Filters</button>
-    <button onclick="removeFilters()">Remove Filters</button>
+    <button onclick="removeFilters()">Remove Filters</button></div>
   </div>
 </div>
 
@@ -153,7 +156,7 @@
     <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
     <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
   </div> 
-  <a href="side.html">></a></div>
+  <a href="place.html">></a></div>
 </div>
   </div> 
 
@@ -186,7 +189,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -220,7 +223,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -254,7 +257,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">100rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">300rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -288,7 +291,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">300rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -322,7 +325,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -356,7 +359,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 
@@ -389,7 +392,7 @@
 <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">300rs</p>
 <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
 </div> 
-<a href="side.html">></a></div>
+<a href="place.html">></a></div>
 </div>
 </div>
 

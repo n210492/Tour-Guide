@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Travel Twogether</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+ 
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/city.css" rel="stylesheet">
+
+
+  <style>
+    .hero{
+        line-height: 1.5em;
+    }
+
+   .view{
+    display: flex;
+    justify-content: right;
+   }
+
+   .view a{
+    font-size: 35px;
+    margin: -50px 10px 0 0;
+    padding:  0 10px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color:white;
+   }
+  </style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top" style="background-color:black;">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- <img src="assets/img/logo.png" alt="">  -->
+        <h1 class="sitename">Travel</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#home">Home<br></a></li>
+          <li><a href="all.html">Locations</a></li>
+          <li><a href="cities.html">Cities</a></li>
+          <li><a href="wishlist.html">Wishlist</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>     
+       
+<div class="input-container search">
+  <input placeholder="Search something..." class="input" name="text" type="text">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <rect fill="white"></rect> <path d="M7.25007 2.38782C8.54878 2.0992 10.1243 2 12 2C13.8757 2 15.4512 2.0992 16.7499 2.38782C18.06 2.67897 19.1488 3.176 19.9864 4.01358C20.824 4.85116 21.321 5.94002 21.6122 7.25007C21.9008 8.54878 22 10.1243 22 12C22 13.8757 21.9008 15.4512 21.6122 16.7499C21.321 18.06 20.824 19.1488 19.9864 19.9864C19.1488 20.824 18.06 21.321 16.7499 21.6122C15.4512 21.9008 13.8757 22 12 22C10.1243 22 8.54878 21.9008 7.25007 21.6122C5.94002 21.321 4.85116 20.824 4.01358 19.9864C3.176 19.1488 2.67897 18.06 2.38782 16.7499C2.0992 15.4512 2 13.8757 2 12C2 10.1243 2.0992 8.54878 2.38782 7.25007C2.67897 5.94002 3.176 4.85116 4.01358 4.01358C4.85116 3.176 5.94002 2.67897 7.25007 2.38782ZM9 11.5C9 10.1193 10.1193 9 11.5 9C12.8807 9 14 10.1193 14 11.5C14 12.8807 12.8807 14 11.5 14C10.1193 14 9 12.8807 9 11.5ZM11.5 7C9.01472 7 7 9.01472 7 11.5C7 13.9853 9.01472 16 11.5 16C12.3805 16 13.202 15.7471 13.8957 15.31L15.2929 16.7071C15.6834 17.0976 16.3166 17.0976 16.7071 16.7071C17.0976 16.3166 17.0976 15.6834 16.7071 15.2929L15.31 13.8957C15.7471 13.202 16 12.3805 16 11.5C16 9.01472 13.9853 7 11.5 7Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+</div>
+
+<a class="btn-getstarted" href="index.html#book-a-table"> 
+  <i class="fa fa-user"></i></a>
+    </div>
+  </header>
+
+<main>
+<div class="hero" style="background-color:rgba(0, 0,0, 0.5);height:200px;">
+        <h1>All Available Tour Guides</h1><br>
+</div>
+
+    <!-- Main Content Section -->
+<div class="main-content">
+        <h2>Top Tour Guides for {location-name}</h2><br><br>
+<button class="filter" onclick="openFilterPopup()">Filter</button>
+
+<!-- Filter Popup -->
+<div id="filterOverlay" class="filter-overlay"></div>
+<div id="filterPopup" class="filter-popup">
+  <div class="filter-content">
+    <span class="close" onclick="closeFilterPopup()">&times;</span>
+    <h2 style="font-size:30px;">Filter Options</h2>
+    
+    
+    <div id="lang">
+      <label>Languages:</label><br>
+      <label><input type="checkbox" value="english" class="city-checkbox">English</label><br>
+      <label><input type="checkbox" value="hindi" class="city-checkbox"> Hindi</label><br>
+      <label><input type="checkbox" value="telugu" class="city-checkbox"> Telugu</label><br>
+      <label><input type="checkbox" value="tamil" class="city-checkbox"> Tamil</label><br>
+      <label><input type="checkbox" value="spanish" class="city-checkbox"> Spanish</label><br>
+      <label><input type="checkbox" value="french" class="city-checkbox"> French</label><br><br>
+    </div>
+  </div>
+    
+    <!-- Age Range Slider -->
+    <label>Age (22 - 65):</label><br>
+    <input style="width: 100%;" type="range" id="Agerange" min="22" max="65" value="65" oninput="updateAgeValue()">
+    <span id="Age">65</span><br><br>
+
+
+    <!-- Experience Range Slider -->
+
+    <label>Experince (0 - 50):</label><br>
+    <input style="width: 100%;" type="range" id="exprange" min="22" max="65" value="65" oninput="updatexpValue()">
+    <span id="Exp">50</span><br><br>
+    
+    <!-- Apply and Remove Filter Buttons -->
+    <div class="filter-btns">
+    <button onclick="applyFilters()">Apply Filters</button>
+    <button onclick="removeFilters()">Remove Filters</button>
+  </div>
+  </div>
+</div>
+
+<div class="cards-container" data-aos="fade-up" data-aos-delay="100">
+<div class="card">
+<img  style="height:180px" src="imgs/Members/me.jpg" alt="">  
+<div class="dets"> 
+    
+  <p class="place" style="margin-left: 10px;">Preetham</p>
+  <p  style="margin-left: 10px;font-size:15px">22 years Old</p>
+  <p  style="margin-left: 10px;font-size:15px">10 years Experience</p>
+  <p  style="margin:8px 0 0 10px;font-size:15px">Rating: 4.9/5</p>
+  <div class="view">
+<a href="guide.html">></a>
+  </div>
+</div>
+</div> 
+</div>
+</div> 
+</main>
+
+
+<script>
+ // Open the filter popup
+function openFilterPopup() {
+    document.getElementById("filterOverlay").style.display = "block";
+    document.getElementById("filterPopup").style.display = "block";
+}
+
+// Close the filter popup
+function closeFilterPopup() {
+    document.getElementById("filterOverlay").style.display = "none";
+    document.getElementById("filterPopup").style.display = "none";
+}
+
+// Update age value dynamically when slider moves
+function updateAgeValue() {
+    document.getElementById("Age").innerText = document.getElementById("Agerange").value;
+}
+
+// Update experience value dynamically when slider moves
+function updatexpValue() {
+    document.getElementById("Exp").innerText = document.getElementById("exprange").value;
+}
+
+// Apply filters (gets selected values and logs them)
+function applyFilters() {
+    let selectedLanguages = [];
+    
+    // Get all checked checkboxes
+    document.querySelectorAll(".city-checkbox:checked").forEach((checkbox) => {
+        selectedLanguages.push(checkbox.value);
+    });
+
+    let selectedAge = document.getElementById("Agerange").value;
+    let selectedExp = document.getElementById("exprange").value;
+
+    console.log("Selected Languages:", selectedLanguages);
+    console.log("Selected Age:", selectedAge);
+    console.log("Selected Experience:", selectedExp);
+
+    // You can add additional logic here to filter content dynamically
+
+    closeFilterPopup(); // Close the popup after applying filters
+}
+
+// Remove filters (reset checkboxes and sliders)
+function removeFilters() {
+    document.querySelectorAll(".city-checkbox").forEach((checkbox) => {
+        checkbox.checked = false; // Uncheck all checkboxes
+    });
+
+    document.getElementById("Agerange").value = 65; // Reset age to max value
+    document.getElementById("Age").innerText = 65; // Update displayed age
+
+    document.getElementById("exprange").value = 50; // Reset experience to max value
+    document.getElementById("Exp").innerText = 50; // Update displayed experience
+
+    console.log("Filters removed");
+
+    // You can add additional logic to reset any filtered content
+
+    closeFilterPopup(); // Close the popup after removing filters
+}
+
+// Ensure the overlay closes the popup when clicked
+document.getElementById("filterOverlay").addEventListener("click", closeFilterPopup);
+
+</script>
+
+<br><br>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>RGUKT IIIT Nuzvid</p>
+            <p>PIN 521202, Krishna District.</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
+              <strong>Email:</strong> <span>Travel2Gether@rgukt.ac.in</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>10:00AM - 21:00PM</span><br>
+              <strong>Sunday</strong>: <span>10:00AM - 3:00PM</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Travel</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">Team2Gether</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/place.js"></script>
+
+  <script src="assets/js/filter.js"></script>
+</body>
+</html>
