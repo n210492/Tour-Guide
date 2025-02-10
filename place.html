@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Travel Twogether</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+ 
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/place.css" rel="stylesheet">
+  <link href="assets/css/city.css" rel="stylesheet">
+  
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top" style="background-color:black;">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- <img src="assets/img/logo.png" alt="">  -->
+        <h1 class="sitename">Travel</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Category</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>     
+       
+<div class="input-container search">
+  <input placeholder="Search something..." class="input" name="text" type="text">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <rect fill="white"></rect> <path d="M7.25007 2.38782C8.54878 2.0992 10.1243 2 12 2C13.8757 2 15.4512 2.0992 16.7499 2.38782C18.06 2.67897 19.1488 3.176 19.9864 4.01358C20.824 4.85116 21.321 5.94002 21.6122 7.25007C21.9008 8.54878 22 10.1243 22 12C22 13.8757 21.9008 15.4512 21.6122 16.7499C21.321 18.06 20.824 19.1488 19.9864 19.9864C19.1488 20.824 18.06 21.321 16.7499 21.6122C15.4512 21.9008 13.8757 22 12 22C10.1243 22 8.54878 21.9008 7.25007 21.6122C5.94002 21.321 4.85116 20.824 4.01358 19.9864C3.176 19.1488 2.67897 18.06 2.38782 16.7499C2.0992 15.4512 2 13.8757 2 12C2 10.1243 2.0992 8.54878 2.38782 7.25007C2.67897 5.94002 3.176 4.85116 4.01358 4.01358C4.85116 3.176 5.94002 2.67897 7.25007 2.38782ZM9 11.5C9 10.1193 10.1193 9 11.5 9C12.8807 9 14 10.1193 14 11.5C14 12.8807 12.8807 14 11.5 14C10.1193 14 9 12.8807 9 11.5ZM11.5 7C9.01472 7 7 9.01472 7 11.5C7 13.9853 9.01472 16 11.5 16C12.3805 16 13.202 15.7471 13.8957 15.31L15.2929 16.7071C15.6834 17.0976 16.3166 17.0976 16.7071 16.7071C17.0976 16.3166 17.0976 15.6834 16.7071 15.2929L15.31 13.8957C15.7471 13.202 16 12.3805 16 11.5C16 9.01472 13.9853 7 11.5 7Z" clip-rule="evenodd" fill-rule="evenodd"></path> </g></svg>
+</div>
+
+<a class="btn-getstarted" href="index.html#book-a-table"> 
+  <i class="fa fa-user"></i></a>
+    </div>
+  </header>
+
+   <main>
+      <!-- Gallery Section -->
+    <section id="head" class="head"> 
+      <h2></h2>
+      <br><br>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="backgnd">
+          <div class="slider-container">
+            <div class="con-like">
+              <input class="like" type="checkbox" title="like">
+              <div class="checkmark">
+              <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
+               <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
+               <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
+               <polygon class="poly" points="10,10 20,20"></polygon>
+               <polygon class="poly" points="10,50 20,50"></polygon>
+               <polygon class="poly" points="20,80 30,70"></polygon>
+               <polygon class="poly" points="90,10 80,20"></polygon>
+               <polygon class="poly" points="90,50 80,50"></polygon>
+               <polygon class="poly" points="80,80 70,70"></polygon>
+             </svg>
+           </div>
+         </div>
+
+              <div class="slider">
+                <div class="con-like">
+     <input class="like" type="checkbox" title="like">
+     <div class="checkmark">
+     <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
+      <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+     </svg>
+     <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
+      <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+     </svg>
+     <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
+      <polygon class="poly" points="10,10 20,20"></polygon>
+      <polygon class="poly" points="10,50 20,50"></polygon>
+      <polygon class="poly" points="20,80 30,70"></polygon>
+      <polygon class="poly" points="90,10 80,20"></polygon>
+      <polygon class="poly" points="90,50 80,50"></polygon>
+      <polygon class="poly" points="80,80 70,70"></polygon>
+    </svg>
+  </div>
+</div>
+                  <div class="slide">
+                    <a href="imgs/chennai.jpg" class="glightbox">
+                      <img src="imgs/chennai.jpg" alt="">
+                    </a>
+                  </div>
+
+                  <div class="slide">
+                    <a href="imgs/bangalore.jpg" class="glightbox">
+                      <img src="imgs/bangalore.jpg" alt="">
+                    </a>
+                  </div>
+
+                  <div class="slide">
+                    <a href="imgs/delhi.jpg" class="glightbox">
+                      <img src="imgs/delhi.jpg" alt="">
+                    </a>
+                  </div>
+
+                  <div class="slide">
+                    <a href="imgs/bangalore.jpg" class="glightbox">
+                      <img src="imgs/bangalore.jpg" alt="">
+                    </a>
+                  </div>
+
+                  <div class="slide">
+                    <a href="imgs/mumbai.jpg" class="glightbox">
+                      <img src="imgs/mumbai.jpg" alt="">
+                    </a>
+                  </div>
+              </div>
+              <button class="prev">&#10094;</button>
+              <button class="next">&#10095;</button>
+             </div>
+          <div class="dots-container">
+              <span class="dot" data-index="0"></span>
+              <span class="dot" data-index="1"></span>
+              <span class="dot" data-index="2"></span>
+              <span class="dot" data-index="3"></span>
+              <span class="dot" data-index="4"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="activity">
+  <div class="info">
+    <div class="activity-box">
+      <p style="font-size: 25px;">Experience the Mughal Empire on a guided day trip from New Delhi. Visit UNESCO-listed sites like the Taj Mahal, Agra Fort, and Baby Taj. Upgrade with the option that includes lunch at a 5-star hotel.</p>
+      <h2>About this activity</h2>
+      
+      <div class="activity-item">
+          <img src="pngs\1.png" alt="Free cancellation">
+          <div>
+              <strong>Free cancellation</strong><br>
+              <span>Cancel up to 24 hours in advance for a full refund</span>
+          </div>
+      </div>
+
+      <div class="activity-item">
+          <img src="pngs\2.png">
+          <div>
+              <strong>Duration 12 hours</strong><br>
+              <span>Check availability to see starting times.</span>
+          </div>
+      </div>
+
+      <div class="activity-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/709/709790.png" alt="Skip the line">
+          <div>
+            <strong>Skip the ticket line</strong><br>
+            <span>No need to wait in Queue</span>
+        </div>
+          
+      </div>
+
+      <div class="activity-item">
+          <img src="pngs\3.png">
+          <div>
+              <strong>Live tour guide</strong><br>
+              <span>English, Spanish, French, Russian</span>
+          </div>
+      </div>
+
+      <div class="activity-item">
+        <img src="pngs\4.png">
+        <div>
+            <strong>Wheel chair Accessibility</strong><br>
+            <span>Can bring wheels chairs to this place</span>
+        </div>
+    </div>
+
+    <div class="activity-item">
+      <img src="pngs\5.png">
+      <div>
+          <strong>Privacy</strong><br>
+          <span>No outsider will involve in our private tour</span>
+      </div>
+  </div></div>
+
+  <div class="info2">
+
+  <div class="offer-box"  data-aos="fade-up" data-aos-delay="100">
+      <div class="offer-header">Save up to 30%</div>
+      <div class="price">From <del>₹7,500</del> <br><span>₹3,750</span> per person</div>
+      <a href="#booking-bar bar1" class="btnk">Add to cart</a>
+      <div class="pay-later">
+          <img src="https://cdn-icons-png.flaticon.com/512/633/633611.png" alt="pay later">
+          <a href="#">Reserve now</a> to book your spot and pay nothing today
+      </div>
+  </div>
+
+
+  <div class="map" data-aos="fade-up" data-aos-delay="100">
+    <div class="map-container">
+      <iframe 
+        id="map-iframe"
+        width="100%" 
+        height="500" 
+        frameborder="0" 
+        style="border:0" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3549.400553850174!2d78.03995351505036!3d27.175144783015277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39747121d702ff6d%3A0xdd2ae4803f767dde!2sTaj%20Mahal!5e0!3m2!1sen!2sin!4v1633084800000!5m2!1sen!2sin" 
+        allowfullscreen>
+      </iframe>
+    </div>
+    <button id="fullscreen-btn" class="fullscreen-btn"><i class="fa fa-expand"></i>
+    </button>
+    </div>
+  </div></div>
+  </section>
+<section>
+
+<section class="activity" style="margin-top: -80px;">
+<div class="info">
+<div class="activity-box">
+  <h2>Don'ts:</h2>
+</div>
+
+<div class="info2">
+ <div class="booking-bar bar1" data-aos="fade-up" data-aos-delay="100" id="booking-bar bar1">
+      <div class="dropdown-container">
+          <button class="dropdown-btn" id="participantBtn">Adult x 1,Child x 0, Infant x 0</button>
+          <div class="dropdown-menu" id="participantMenu">
+              <div>
+                  <span>Adult(16-99):&nbsp;&nbsp;</span>
+                  <button onclick="changeCount('adult', -1)">-</button>&nbsp;&nbsp;
+                  <span id="adultCount">1</span>&nbsp;&nbsp;
+                  <button onclick="changeCount('adult', 1)">+</button>
+              </div>
+
+              <div>
+                <span>Child(05-15):&nbsp;&nbsp;</span>
+                <button onclick="changeCount('child', -1)">-</button>&nbsp;&nbsp;
+                <span id="childCount">0</span>&nbsp;&nbsp; 
+                <button onclick="changeCount('child', 1)">+</button>
+            </div>
+
+              <div>
+                  <span>Infant(01-04):&nbsp;</span>
+                  <button onclick="changeCount('infant', -1)">-</button>&nbsp;&nbsp;
+                  <span id="infantCount">0</span>&nbsp;&nbsp; 
+                  <button onclick="changeCount('infant', 1)">+</button>
+              </div>
+          </div>
+      </div>      
+      <input type="text" id="datePicker" class="date-picker" placeholder="Select date range">
+      <button class="check-btn">&nbsp;Check availability & Book&nbsp;&nbsp;</button>
+  </div>
+
+<!-- Status Box Overlay -->
+<div class="status-overlay" id="statusOverlay"></div>
+
+<!-- Detailed Status Box -->
+<div class="status-box" id="statusBox">
+    <span class="status-close" onclick="closeStatusBox()">×</span>
+    <div class="status-header" id="statusTitle">Loading...</div>
+
+    <div class="status-content">
+        <p id="statusDescription">Checking availability...</p>
+        
+        <div class="status-details">
+            <p><strong>Starting Time:</strong> <span id="statusTime">--:--</span></p>
+            <p><strong>Duration:</strong> <span id="statusDuration">-- hrs</span></p>
+            <p><strong>Location:</strong> <span id="statusLocation">----</span></p>
+            <p><strong>Seats Available:</strong> <span id="statusSeats">--</span></p>
+        </div>
+
+        <div class="status-inclusions">
+            <p><b>What's Included:</b></p>
+            <ul id="statusInclusions">
+                <li>--</li>
+            </ul>
+        </div>
+
+        <div class="status-price">
+            <p><strong>Total Price:</strong> <span id="statusPrice">₹0</span></p>
+        </div>
+    </div>
+
+    <div class="status-buttons">
+        <button class="book-now" onclick="bookNow()">Book Now</button>
+        <button class="add-cart" onclick="addToCart()">Add to Cart</button>
+    </div>
+</div>
+
+
+</div></div>
+</section>
+
+
+
+<div class="review">
+  
+  <section id="testimonials" class="testimonials section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+      <h1 style="font-weight:1000"> Customer Reviews:😄</h1>
+      <p>What Are They <span class="description-title">Saying About Us</span></p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="swiper init-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 500,
+            "autoplay": {
+              "delay": 3000
+            },
+            "slidesPerView": "auto",
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true
+            }
+          }
+        </script>
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <div class="row gy-4 justify-content-center">
+                <div class="col-lg-6">
+                  <div class="testimonial-content">
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                    <h3>Saul Goodman</h3>
+                    <h4>Ceo &amp; Founder</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 text-center">
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="img-fluid testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <div class="row gy-4 justify-content-center">
+                <div class="col-lg-6">
+                  <div class="testimonial-content">
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                    <h3>Sara Wilsson</h3>
+                    <h4>Designer</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 text-center">
+                  <img src="assets/img/testimonials/testimonials-2.jpg" class="img-fluid testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <div class="row gy-4 justify-content-center">
+                <div class="col-lg-6">
+                  <div class="testimonial-content">
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                    <h3>Jena Karlis</h3>
+                    <h4>Store Owner</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 text-center">
+                  <img src="assets/img/testimonials/testimonials-3.jpg" class="img-fluid testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+          <div class="swiper-slide">
+            <div class="testimonial-item">
+              <div class="row gy-4 justify-content-center">
+                <div class="col-lg-6">
+                  <div class="testimonial-content">
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                    <h3>John Larson</h3>
+                    <h4>Entrepreneur</h4>
+                    <div class="stars">
+                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 text-center">
+                  <img src="assets/img/testimonials/testimonials-4.jpg" class="img-fluid testimonial-img" alt="">
+                </div>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section><!-- /Testimonials Section -->
+ </div>
+<br><br>  
+<h1 style="margin: 0 50px;font-weight:1000;">You might also like😃....</h1><br><br>
+<section class="activity">
+<div class="cards-container" style="margin:0 30px;width:100%;">
+<div class="card">
+  <img src="imgs/Categories/Nature/garden-of-five-senses.jpg" alt="">  
+  <div class="dets"> 
+  <div class="con-like">
+  <input class="like" type="checkbox" title="like" onchange="addToWishlist(item)">
+  <div class="checkmark">
+  <svg xmlns="http://www.w3.org/2000/svg" class="outline" viewBox="0 0 24 24">
+  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" class="filled" viewBox="0 0 24 24">
+  <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="celebrate">
+  <polygon class="poly" points="10,10 20,20"></polygon>
+  <polygon class="poly" points="10,50 20,50"></polygon>
+  <polygon class="poly" points="20,80 30,70"></polygon>
+  <polygon class="poly" points="90,10 80,20"></polygon>
+  <polygon class="poly" points="90,50 80,50"></polygon>
+  <polygon class="poly" points="80,80 70,70"></polygon>
+  </svg>
+  </div></div>     
+  <p class="place" style="margin-left: 10px;">Garden Of 5 senses</p>
+  <p  style="margin-left: 10px;font-size:15px">Scenetic : 2hrs duration</p>
+  <p  style="margin:8px 0 0 10px;font-size:15px">Rating: 4.9/5</p>
+  <div class="det2">
+  <div class="det">
+  <p class="real" style="font-size: 25px;color:rgb(255, 18, 255);">400rs</p>
+  <p class="strike" style="font-size: 15px;margin-top:16px;">700rs</p>
+  </div> 
+  <a href="place.html">></a></div>
+  </div>
+  </div>
+</div>
+ </section>
+</main>
+<br><br>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>RGUKT IIIT Nuzvid</p>
+            <p>PIN 521202, Krishna District.</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
+              <strong>Email:</strong> <span>Travel2Gether@rgukt.ac.in</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>10:00AM - 21:00PM</span><br>
+              <strong>Sunday</strong>: <span>10:00AM - 3:00PM</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Travel</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">Team2Gether</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/place.js"></script>
+</body>
+</html>
