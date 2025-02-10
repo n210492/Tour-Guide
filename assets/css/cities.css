@@ -188,15 +188,13 @@
 
 
 @media(max-width:860px){
-
-.real{
-    font-size: 30px;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
 .city-container{
   gap:1em;
-}
+}}
 
+
+.real{
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--accent-color);
 }

@@ -295,3 +295,10 @@ color: var(--accent-color);
   display:flex;
   flex-wrap: wrap;
 }
+
+.filter-btns button{
+  padding: 10px;
+  border-radius: 20px ;
+  background-color:var(--accent-color);
+  color: white;
+}
