@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Signup</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="assets/css/log.css">
+</head>
+<body>
+    <section>
+    <div class="form-container">
+        <div class="col col-1">
+           <div class="image-layer">
+            <img src="imgs/log/white-outline.png" alt="#" class="form-image-main">
+            <img src="imgs/log/dots.png" alt="#" class="form-image dots">
+            <img src="imgs/log/coin.png" alt="#" class="form-image coin">
+            <img src="imgs/log/spring.png" alt="#" class="form-image spring">
+            <img src="imgs/log/rocket.png" alt="#" class="form-image rocket">
+            <img src="imgs/log/cloud.png" alt="#" class="form-image cloud">
+            <img src="imgs/log/stars.png" alt="#" class="form-image stars">
+            <p class="words">Welcome to Tour Guide Booking Portal <span>Login</span></p>
+           </div>
+        </div>
+
+        <div class="col col-2">
+            <div class="btn-box">
+                <button class="btn btn-1" id="LogIn">LogIn</button>
+                <button class="btn btn-2" id="SignUp">SignUp</button>
+            </div>
+
+            <!-- Login Form-->
+            <form class="login-form" id="login-form">
+                <div class="form-title">
+                    <span>Log In</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="email" id="login-email" class="input-field" placeholder="Email" required>
+                        <i class="bx bx-envelope icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="login-password" class="input-field" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
+                    </div>
+
+                    <div class="forgot-pass">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+                    <div class="input-box">
+                        <button type="submit" class="input-submit" id="login-submit">
+                            <span>LogIn</span>
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="social-login">
+                    <i class="bx bxl-google"></i>
+                    <i class="bx bxl-facebook"></i>
+                    <i class="bx bxl-github"></i>
+                </div>
+             </form>
+
+             <!-- SignUp Form-->
+             <form class="reg-form" id="reg-form">
+                <div class="form-title">
+                    <span>Create Account</span>
+                </div>
+                <div class="form-inputs">
+                    <div class="input-box">
+                        <input type="text" id="signup-username" class="input-field" placeholder="Username" required>
+                        <i class="bx bx-user icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="email" id="signup-email" class="input-field" placeholder="Email" required>
+                        <i class="bx bx-envelope icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="text" id="signup-phone" maxlength="10" class="input-field" placeholder="Phone" required>
+                        <i class="bx bx-phone icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="signup-password" class="input-field" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <button type="submit" class="input-submit" id="signup-submit">
+                            <span>Sign Up</span>
+                            <i class="bx bx-right-arrow-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="social-login">
+                    <i class="bx bxl-google"></i>
+                    <i class="bx bxl-facebook"></i>
+                    <i class="bx bxl-github"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Form Toggle Logic
+        const login = document.getElementById("LogIn");
+        const reg = document.getElementById("SignUp");
+        const logform = document.getElementById("login-form");
+        const signform = document.getElementById("reg-form");
+
+        login.addEventListener('click', () => {
+            login.style.color = "black";
+            login.style.backgroundColor = "white";
+            reg.style.color = "white";
+            reg.style.backgroundColor = "black";
+            logform.style.left = "-50%";
+            signform.style.left = "150%";
+            document.querySelector(".col-1").style.borderRadius = "4% 20% 40% 4%";
+        });
+
+        reg.addEventListener('click', () => {
+            reg.style.color = "black";
+            reg.style.backgroundColor = "white";
+            login.style.color = "white";
+            login.style.backgroundColor = "black";
+            logform.style.left = "150%";
+            signform.style.left = "-50%";
+            document.querySelector(".col-1").style.borderRadius = "4% 40% 20% 4%";
+        });
+
+        // API Base URL
+        const API_BASE_URL = 'http://localhost:3000/api';
+
+        // Login Form Submission
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Login successful!');
+                    // Store user data if needed
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // Redirect or update UI
+                    window.location.href = 'index.html'; 
+                } else {
+                    throw new Error(data.message || 'Login failed');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Signup Form Submission
+        document.getElementById('reg-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const phone = document.getElementById('signup-phone').value;
+            const password = document.getElementById('signup-password').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, phone, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Signup successful! Please login.');
+                    // Switch to login form
+                    login.click();
+                } else {
+                    throw new Error(data.message || 'Signup failed');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
+</body>
+</html>
