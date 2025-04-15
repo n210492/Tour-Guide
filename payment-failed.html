@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Failed</title>
+  <style>
+    *{
+       font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    body {
+      background-color: rgba(134, 8, 8,0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #721c24;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+    .button {
+      display: inline-block;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .button-secondary {
+      background-color: #6c757d;
+    }
+    .button-secondary:hover {
+      background-color: #545b62;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="imgs\fail.jpg" alt="oops" class="image">
+    <h1>Payment Failed!</h1>
+    <p>Unfortunately, your payment could not be processed. 
+      <br>Please try again😞. </p>
+    <a href="payment.html" class="button">Retry Payment</a>
+    <a href="index.html" class="button button-secondary">Back to Home</a>
+    <br><br>
+  </div>
+</body>
+</html>

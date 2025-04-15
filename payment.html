@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+  <style>
+    .error {
+      color: red;
+      font-size: 0.875rem;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8">
+      <h1 class="text-3xl font-bold text-center mb-6">Payment</h1>
+
+      <div id="statusMessage" class="mb-4 hidden p-4 text-center rounded-lg"></div>
+
+      <form id="paymentForm">
+        <div class="mb-6">
+          <h2 class="text-xl font-bold mb-2">User Information</h2>
+          <p class="mb-2"><strong>Name:</strong> John Doe</p>
+          <p class="mb-2"><strong>Email:</strong> john.doe@example.com</p>
+          <p class="mb-2"><strong>Tourist Places:</strong> Eiffel Tower, Louvre Museum</p>
+          <hr class="my-4">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">Choose Payment Method:</label>
+          <select id="paymentMethod" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <option value="">Select a payment method</option>
+            <option value="creditDebit">Credit/Debit Card</option>
+            <option value="upi">UPI</option>
+            <option value="netBanking">Net Banking</option>
+          </select>
+          <p id="paymentMethodError" class="error hidden">Please select a payment method.</p>
+        </div>
+
+        <div id="creditDebitSection" class="hidden">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Card Number:</label>
+            <input type="text" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <p id="cardNumberError" class="error hidden">Enter a valid card number (16 digits).</p>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Expiry Date:</label>
+            <input type="text" id="expiryDate" maxlength="5" placeholder="MM/YY" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <p id="expiryDateError" class="error hidden">Enter a valid expiry date (MM/YY).</p>
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">CVV:</label>
+            <input type="text" id="cvv" maxlength="3" placeholder="123" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <p id="cvvError" class="error hidden">Enter a valid CVV (3 digits).</p>
+          </div>
+        </div>
+
+        <div id="upiSection" class="hidden">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">UPI ID:</label>
+            <input type="text" id="upiId" placeholder="example@upi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <p id="upiIdError" class="error hidden">Enter a valid UPI ID.</p>
+          </div>
+        </div>
+
+        <div id="netBankingSection" class="hidden">
+          <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Bank Name:</label>
+            <select id="bankName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+              <option value="">Select your bank</option>
+              <option value="hdfc">HDFC Bank</option>
+              <option value="sbi">State Bank of India</option>
+              <option value="icici">ICICI Bank</option>
+            </select>
+            <p id="bankNameError" class="error hidden">Please select your bank.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Pay Now
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const paymentMethod = document.getElementById('paymentMethod');
+    const creditDebitSection = document.getElementById('creditDebitSection');
+    const upiSection = document.getElementById('upiSection');
+    const netBankingSection = document.getElementById('netBankingSection');
+    const statusMessage = document.getElementById('statusMessage');
+
+    paymentMethod.addEventListener('change', () => {
+      const method = paymentMethod.value;
+      creditDebitSection.classList.add('hidden');
+      upiSection.classList.add('hidden');
+      netBankingSection.classList.add('hidden');
+      document.querySelectorAll('.error').forEach((error) => error.classList.add('hidden'));
+
+      if (method === 'creditDebit') creditDebitSection.classList.remove('hidden');
+      else if (method === 'upi') upiSection.classList.remove('hidden');
+      else if (method === 'netBanking') netBankingSection.classList.remove('hidden');
+    });
+
+    document.getElementById('cardNumber').addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
+    });
+
+    document.getElementById('expiryDate').addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').replace(/(\d{2})(\d{1,2})/, '$1/$2').substring(0, 5);
+    });
+
+    document.getElementById('paymentForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      let validationCompleted = false;
+      document.querySelectorAll('.error').forEach((error) => error.classList.add('hidden'));
+
+      if (!paymentMethod.value) {
+        document.getElementById('paymentMethodError').classList.remove('hidden');
+        isValid = false;
+      }
+
+      if (paymentMethod.value === 'creditDebit') {
+        const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+        const expiryDate = document.getElementById('expiryDate').value;
+        const cvv = document.getElementById('cvv').value;
+
+        if (cardNumber.length !== 16) {
+          document.getElementById('cardNumberError').classList.remove('hidden');
+          isValid = false;
+        }
+        if (!expiryDate.match(/\d{2}\/\d{2}/)) {
+          document.getElementById('expiryDateError').classList.remove('hidden');
+          isValid = false;
+        }
+        if (cvv.length !== 3) {
+          document.getElementById('cvvError').classList.remove('hidden');
+          isValid = false;
+        }
+      }
+
+      if (paymentMethod.value === 'upi') {
+        const upiId = document.getElementById('upiId').value;
+
+        if (!upiId.includes('@')) {
+          document.getElementById('upiIdError').classList.remove('hidden');
+          isValid = false;
+        }
+      }
+
+      if (paymentMethod.value === 'netBanking') {
+        const bankName = document.getElementById('bankName').value;
+
+        if (!bankName) {
+          document.getElementById('bankNameError').classList.remove('hidden');
+          isValid = false;
+        }
+      }
+
+      if (isValid) {
+        validationCompleted = true;
+        statusMessage.classList.remove('hidden', 'bg-red-100');
+        statusMessage.classList.add('bg-green-100', 'text-green-800');
+        statusMessage.textContent = 'Processing payment...';
+
+        setTimeout(() => {
+          const paymentSuccess = Math.random() > 0.3; // Simulate payment success or failure
+
+          if (paymentSuccess) {
+            window.location.href = 'payment-successful.html';
+          } else {
+            window.location.href = 'payment-failed.html';
+          }
+        }, 2000);
+      } else if (!validationCompleted) {
+        statusMessage.classList.remove('hidden', 'bg-green-100');
+        statusMessage.classList.add('bg-red-100', 'text-red-800');
+        statusMessage.textContent = 'Please correct the errors in the form.';
+      }
+    });
+  </script>
+</body>
+</html>

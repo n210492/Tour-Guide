@@ -1,0 +1,635 @@
+/*--------------------------------------------------------------
+# head Menu
+--------------------------------------------------------------*/
+.head{
+    margin: 0 30px;
+    padding:30px 0;
+}
+
+.head h2{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:40px;
+}
+
+/* -------------LIke------------ */
+
+.con-like {
+    --red: rgb(255, 50, 50);
+    position: absolute;
+    right:2%;
+  }
+  
+  .con-like .like {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 200;
+    cursor: pointer;
+  }
+  
+  .con-like .checkmark {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .con-like .outline,
+  .con-like .filled {
+    fill: var(--red);
+    position: absolute;
+  }
+  
+  .con-like .filled {
+    animation: kfr-filled 0.5s;
+    display: none;
+  }
+  
+  .con-like .celebrate {
+    position: absolute;
+    animation: kfr-celebrate 0.5s;
+    animation-fill-mode: forwards;
+    display: none;
+  }
+  
+  .con-like .poly {
+    stroke: var(--red);
+    fill: var(--red);
+  }
+  
+  .con-like .like:checked ~ .checkmark .filled {
+    display: block
+  }
+  
+  .con-like .like:checked ~ .checkmark .celebrate {
+    display: block
+  }
+  
+  @keyframes kfr-filled {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  
+  @keyframes kfr-celebrate {
+    0% {
+      transform: scale(0);
+    }
+  
+    50% {
+      opacity: 0.8;
+    }
+  
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+      display: none;
+    }
+  }
+
+/* -------------Swiper------------ */
+
+.backgnd {
+    width: 100%; 
+    height: 100%; 
+    position: relative; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+}
+
+.slider-container {
+    position: relative; 
+    width: 100%;  
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.slider {
+    display: flex; 
+    transition: transform 0.4s ease-in-out;
+}
+
+    
+.slide {
+    min-width: 100%; 
+    height: 700px; 
+    transition: transform 0.5s ease-in-out; 
+}
+
+
+.slide img {
+    width: 100%;
+    height: 100%; 
+    border-radius: 10px; 
+}
+
+
+.prev, .next {
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    border: none; 
+    width: 40px; 
+    height: 40px; 
+    cursor: pointer; 
+    z-index: 10; 
+    transition: background-color 0.3s ease; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 10px; }
+
+.prev {
+    left: 10px; 
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: purple; 
+}
+
+.dots-container {
+    margin-top: 20px; 
+    background-color: black;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.dot {
+    height: 15px; 
+    width: 15px;
+    margin: 0 5px;
+    background-color:purple;
+    color:white;
+    border-radius: 50%; 
+    display: inline-block; 
+    cursor: pointer;     
+    transition: background-color 0.3s ease;    
+}
+
+
+.dot.active {
+    background-color:purple;
+    border: 2px solid rgb(255, 254, 255);  
+}
+
+.map-container {
+    width: 100%;
+    height:300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.booking-bar{
+    background-color: #16233a;
+    color: white;
+    padding: 15px;
+    border-radius: 40px;
+}
+
+.bar1{
+    display: grid;
+    width: 100%;
+    gap: 10px;
+}
+
+.date-picker{
+    padding: 10px;
+    width:100%;
+    overflow:hidden;
+    border-radius: 25px;
+}
+.dropdown-container {
+    position: relative;
+}
+.dropdown-btn {
+    background: white;
+    padding:  10px 30px;
+    width:100%;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    left: 0;
+    background: white;
+    padding: 10px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block; 
+} 
+
+.dropdown-menu div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px;
+    align-items: center;
+}
+
+.dropdown-menu button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.check-btn {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.check-btn:hover{
+    color: black;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.activity-box {
+    background: #fff;
+    height:100%;
+    width: 100%;
+    padding: 0 20px;
+    border-radius: 8px;
+    margin:0 20px;
+}
+.activity-box h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.activity-box p {
+    font-size: 16px;
+    color: #333;
+}
+.activity-item {
+    display: flex;
+    align-items: center;
+    margin: 25px 10px;
+}
+.activity-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.activity-item strong {
+    font-size: 16px;
+    color: #000;
+}
+.activity-item span {
+    font-size: 14px;
+    color: #555;
+}
+.activity-item a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.activity-item a:hover {
+    text-decoration: underline;
+}
+
+
+.offer-box {
+    margin:auto 10px;
+    width: 100%;
+    border:1px solid black;
+    border-radius: 8px;
+    padding: 15px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+.offer-header {
+    background: #ffecec;
+    color: #d9534f;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    text-align: right;
+    font-weight: bold;
+    border-radius: 6px 6px 0 0;
+}
+.price {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+.price del {
+    color: #777;
+    font-size: 14px;
+}
+.price span {
+    color: #d9534f;
+    font-size: 22px;
+    font-weight: bold;
+}
+.btnk {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.btnk:hover {
+    color: black;
+}
+.pay-later {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+}
+.pay-later img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+.pay-later a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.pay-later a:hover {
+    text-decoration: underline;
+}
+
+.activity {
+    display: flex;
+    justify-content: space-between;
+    margin: auto 10px;
+    padding: 10px;
+}
+
+.info {
+    display: flex;
+    margin: 10px;
+    width: 100%;
+    padding:15px;
+}
+
+
+.info2 {
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch; 
+    width: 38%;
+    gap: 10px;
+}
+
+.offer-box, .map-container {
+    width: 100%; 
+    display: block; 
+    margin: 0; 
+}
+
+
+@media screen and (max-width: 1060px){
+    .activity-box {
+        width: 60%;
+    }
+    
+    .slider-container{
+        height:400px;
+    }
+    
+.info2 {
+    display: flex;
+    width: 40%;
+    gap: 20px;
+}
+}
+
+@media screen and (max-width: 650px){
+    .info {
+        display: grid;
+        width: 100%;
+        gap: 10px;
+    }
+    .activity-box p{
+        font-size:20px;
+    }
+
+    .slider-container{
+        height:300px;
+    }
+    
+    .activity-box {
+        width: 100%;
+        margin:auto
+    }
+    
+    .info2 {
+        display: flex;
+        flex-direction: column; 
+        align-items: stretch; 
+        width: 100%;
+        gap: 20px;
+    }
+    .date-picker, .check-btn{
+        width: 100%;
+        flex:1;
+        text-align: center;
+    }
+    .dropdown-btn {
+        flex:1;
+        padding: 10px 30px;
+        width:100%;
+        cursor: pointer;
+    }
+
+}
+
+.extra{
+    margin:0 30px;
+}
+
+/* Status Box Overlay */
+.status-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Status Box Container */
+.status-box {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    z-index: 1001;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Header */
+.status-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+/* Status Box Content */
+.status-content {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Status Details */
+.status-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Inclusions List */
+.status-inclusions h4 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.status-inclusions ul {
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.status-inclusions li {
+    font-size: 14px;
+    color: #555;
+    margin: 4px 0;
+}
+
+/* Price Section */
+.status-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+}
+
+/* Buttons */
+.status-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap:1em;
+    margin-top: 20px;
+}
+
+.status-buttons button {
+    flex: 1;
+    padding: 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.status-buttons .book-now, .status-buttons .add-cart {
+    background: var(--accent-color);
+    color: white;
+}
+
+.status-buttons .book-now:hover, .status-buttons .add-cart:hover {
+    color: black;
+}
+
+
+/* Close Button */
+.status-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* 🔹 RESPONSIVE STYLES FOR MOBILE */
+@media screen and (max-width: 650px) {
+    .status-box {
+        width: 95%;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .status-header {
+        font-size: 18px;
+    }
+
+    .status-content {
+        font-size: 14px;
+    }
+
+    .status-buttons {
+        flex-direction: column;
+    }
+
+    .status-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .status-buttons .book-now:hover, .status-buttons .add-cart:hover {
+        color: black;
+    }
+}
+
+
