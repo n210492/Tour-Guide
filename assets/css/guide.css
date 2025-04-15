@@ -70,7 +70,7 @@ h2 {
 /* Badges */
 .badge {
     display: block;
-    background: #007BFF;
+    background: #c503ec;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -80,7 +80,7 @@ h2 {
 }
 
 .badge:hover {
-    background: #0056b3;
+    background: #e425f5;
 }
 
 /* Additional Info (Right on Desktop, Below on Mobile) */
@@ -120,12 +120,26 @@ h2 {
         width: 100%;
     }
 
-    .about{
-        margin:0 10px;
-    }
 }
 
 .about{
-    margin:0 70px;
+    margin:0 30px;
 }
 
+.background{
+display: grid;
+width: 100%;
+justify-content: center;
+justify-items: center;
+}
+
+.proceed{
+    padding: 20px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.final{
+    display: flex;
+    justify-content: center;
+}

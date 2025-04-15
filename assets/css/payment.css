@@ -1,0 +1,33 @@
+*::-webkit-scrollbar{
+    display: none;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 750px;
+}
+
+.pay-container{
+    padding: 40px 100px;
+    border-radius: 40px;
+    border: 2px solid black;
+    display: grid;
+    justify-content: center;
+    gap: 10px;
+}
+
+#paymentForm{
+    display: grid;
+    gap:2em;
+    font-size: 20px;
+}
+
