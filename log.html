@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,6 @@
             <img src="imgs/log/stars.png" alt="#" class="form-image stars">
             <p class="words">Welcome to Tour Guide Booking Portal <span>Login</span></p>
            </div>
-           
         </div>
 
         <div class="col col-2">
@@ -30,19 +30,20 @@
                 <button class="btn btn-2" id="SignUp">SignUp</button>
             </div>
 
-             
             <!-- Login Form-->
-            <div class="login-form" id="login-form" >
+            <form class="login-form" id="login-form">
                 <div class="form-title">
                     <span>Log In</span>
                 </div>
                 <div class="form-inputs">
                     <div class="input-box">
-                        <input type="email"  class="input-field" placeholder="Email" required><i class="bx bx-envelope icon"></i>
+                        <input type="email" id="login-email" class="input-field" placeholder="Email" required>
+                        <i class="bx bx-envelope icon"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="password"  class="input-field" placeholder="Password" required><i class="bx bx-lock-alt icon"></i>
+                        <input type="password" id="login-password" class="input-field" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
                     </div>
 
                     <div class="forgot-pass">
@@ -50,7 +51,7 @@
                     </div>
 
                     <div class="input-box">
-                        <button class="input-submit">
+                        <button type="submit" class="input-submit" id="login-submit">
                             <span>LogIn</span>
                             <i class="bx bx-right-arrow-alt"></i>
                         </button>
@@ -61,33 +62,36 @@
                     <i class="bx bxl-facebook"></i>
                     <i class="bx bxl-github"></i>
                 </div>
-             </div>
+             </form>
 
              <!-- SignUp Form-->
-             <div class="reg-form" id="reg-form">
+             <form class="reg-form" id="reg-form">
                 <div class="form-title">
                     <span>Create Account</span>
                 </div>
                 <div class="form-inputs">
-
                     <div class="input-box">
-                        <input type="text"  class="input-field" placeholder="Username" required><i class="bx bx-user icon"></i>
+                        <input type="text" id="signup-username" class="input-field" placeholder="Username" required>
+                        <i class="bx bx-user icon"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="email"  class="input-field" placeholder="Email" required><i class="bx bx-envelope icon"></i>
+                        <input type="email" id="signup-email" class="input-field" placeholder="Email" required>
+                        <i class="bx bx-envelope icon"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="text" maxlength="10" class="input-field" placeholder="Phone" required><i class="bx bx-phone icon"></i>
+                        <input type="text" id="signup-phone" maxlength="10" class="input-field" placeholder="Phone" required>
+                        <i class="bx bx-phone icon"></i>
                     </div>
 
                     <div class="input-box">
-                        <input type="password"  class="input-field" placeholder="Password" required><i class="bx bx-lock-alt icon"></i>
+                        <input type="password" id="signup-password" class="input-field" placeholder="Password" required>
+                        <i class="bx bx-lock-alt icon"></i>
                     </div>
 
                     <div class="input-box">
-                        <button class="input-submit">
+                        <button type="submit" class="input-submit" id="signup-submit">
                             <span>Sign Up</span>
                             <i class="bx bx-right-arrow-alt"></i>
                         </button>
@@ -98,36 +102,102 @@
                     <i class="bx bxl-facebook"></i>
                     <i class="bx bxl-github"></i>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
     <script>
-       const login = document.getElementById("LogIn")
-        const reg = document.getElementById("SignUp")
-        const logform = document.getElementById("login-form")
-        const signform = document.getElementById("reg-form")
+        // Form Toggle Logic
+        const login = document.getElementById("LogIn");
+        const reg = document.getElementById("SignUp");
+        const logform = document.getElementById("login-form");
+        const signform = document.getElementById("reg-form");
 
-        login.addEventListener('click',() =>{
+        login.addEventListener('click', () => {
             login.style.color = "black";
             login.style.backgroundColor = "white";
             reg.style.color = "white";
             reg.style.backgroundColor = "black";
-            logform.style.left="-50%";
-            signform.style.left="150%";
+            logform.style.left = "-50%";
+            signform.style.left = "150%";
+            document.querySelector(".col-1").style.borderRadius = "4% 20% 40% 4%";
+        });
 
-            document.querySelector(".col-1").style.borderRadius="4% 20% 40% 4%";
-        })
-
-        reg.addEventListener('click',() =>{
+        reg.addEventListener('click', () => {
             reg.style.color = "black";
             reg.style.backgroundColor = "white";
             login.style.color = "white";
             login.style.backgroundColor = "black";
-            logform.style.left="150%";
-            signform.style.left="-50%";
+            logform.style.left = "150%";
+            signform.style.left = "-50%";
+            document.querySelector(".col-1").style.borderRadius = "4% 40% 20% 4%";
+        });
+
+        // API Base URL
+        const API_BASE_URL = 'http://localhost:3000/api';
+
+        // Login Form Submission
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
             
-            document.querySelector(".col-1").style.borderRadius="4% 40% 20% 4%";     
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Login successful!');
+                    // Store user data if needed
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    // Redirect or update UI
+                    window.location.href = 'index.html'; 
+                } else {
+                    throw new Error(data.message || 'Login failed');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Signup Form Submission
+        document.getElementById('reg-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const phone = document.getElementById('signup-phone').value;
+            const password = document.getElementById('signup-password').value;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, email, phone, password })
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Signup successful! Please login.');
+                    // Switch to login form
+                    login.click();
+                } else {
+                    throw new Error(data.message || 'Signup failed');
+                }
+            } catch (error) {
+                alert(error.message);
+            }
         });
     </script>
 </body>
